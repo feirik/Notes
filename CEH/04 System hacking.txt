@@ -1,0 +1,77 @@
+Overview ahead of hacking
+-------------------------
+Recon & Footprinting
+- IP range
+- Namespace
+- Public Data
+
+Scanning
+- ID targets
+- ID services
+- ID O/S
+
+Enumeration
+- User lists
+- Security flaws
+- Resources
+
+
+Password paths
+--------------
+Win: C:\windows\system32\config\sam
+
+Win domain: NTDS - ntds.dit
+
+Linux: /etc/shadow
+
+OSX: /var/db/dslocal/nods/default/users/<user>.plist (ShadowHashData Property)
+
+
+Privileges escalation
+---------------------
+DLL hijacking
+
+CPU vulnerabilities
+
+Offline access
+
+Access Token
+
+Application Shimming
+
+Filesystem Permission weakness
+
+Path interception (pass in dll in path of another used by application)
+
+Scheduled tasks
+
+
+Clearing tracks
+---------------
+Clear browser history
+
+Delete cookies
+
+Delete downloads
+
+Clear password manager
+
+Delete private data
+
+Clear logs (correct way, not just leave clear log entry)
+
+regedit > HKEY_LOCAL_MACHINE > Software > Microsoft - Microsoft Management Console > CurrentVersion > Explorer > Delete all entries but default (deletes all recently opened document entries)
+
+Advanced
+--------
+Disable auditing
+- auditpol for Windows, lower log size to overwrite, change log file path
+- HISTSIZE=0 for bash_history, history -c (clear history), history -w (deletes history of current shell)
+- cat /dev/null > ~.bash_history && history -c && history exit (clears for this shell and other shell)
+- shred ~/.bash_history (overwrites file memory)
+
+Do things
+
+Re-enable auditing
+
+

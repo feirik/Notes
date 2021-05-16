@@ -1,0 +1,21 @@
+SQL Inject Me (browser plugin)
+------------------------------
+
+
+Burp Suite
+----------
+Fuzz testing
+
+
+Havij
+-----
+Data extraction
+
+
+Schema mapping (data base layout)
+---------------------------------
+sqlmap
+
+
+NetSparker (Dynamic analysis)
+-----------------------------

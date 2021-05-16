@@ -1,0 +1,93 @@
+hping3
+------
+hping3 -1 <192.168.0.x> --rand-dest -I eth0 (random icmp sweep)
+
+hping3 -S 192.168.0.1 -a 10.10.10.10 -p 80 --flood (syn flood from 10.10.10.10)
+
+
+Firewalk
+--------
+firewalk -s20-100 -i eth0 -n -pTCP <IP address gateway> <IP target> (find open ports (p20-100) blocked by normal traceroute)
+
+
+Stealth scan
+------------
+nmap -sT -v 192.168.0.10 (send RESET ACK to target after receiving SYN ACK)
+
+Xmas scan (Not for Windows targets)
+-----------------------------------
+nmap -sX -v 192.168.0.10 (send different flags to target, no response, port is open RESET ACK, port is closed)
+
+
+Fin scan (Not for Windows targets)
+----------------------------------
+nmap -sF -v 192.168.0.10 (send FIN to target, no response, port is open RESET ACK, port is closed)
+
+
+UDP scanning
+------------
+nmap -sU -T4 <IP target> (UDP scan, only 1000 ports, UDP scan results are harder to trust and more error prone, more efficient vs Windows)
+
+
+
+Null scan (Not for Windows targets)
+-----------------------------------
+nmap -sN -v 192.168.0.10 (send NO FLAG to target, no response, port is open RESET ACK, port is closed)
+
+
+IDLE scan (spoof sender)
+------------------------
+1. Send SYN/ACK to Zombie
+2. Receive RST IPID from Zombie
+3. Send SYN packe to target using zombie source
+
+
+Banner grabbing (noisy vs IDS)
+------------------------------
+1. Try to connect with telnet at port 80
+2. Send HEAD over telnet
+3. Cancel telnet session, exposing OS banner
+
+Alternatively: (netcat on Linux)
+--------------------------------
+nc <target> 80
+head / http/1.0 (when connected)
+
+
+Vulnerability scanning (crosses the line towards black hat)
+-----------------------------------------------------------
+web.nvd.nist.gov (vuln database)
+
+Nessus
+
+
+Proxying
+--------
+Pwn machines, create a proxy chain for external pwned machines and internal ones
+
+Proxifier
+
+SocksChain
+
+Fiddler
+
+TOR
+
+Proxy Switcher
+
+Proxy Workbench (recommended?)
+
+
+Anonymizers
+-----------
+G-Zapper
+
+U-Surf
+
+Mowser
+
+WarpProxy
+
+Hide My IP
+
+Hide your ass

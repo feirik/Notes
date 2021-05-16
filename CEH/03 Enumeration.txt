@@ -1,0 +1,148 @@
+Ports and services
+------------------
+TCP 25 - SMTP (email)
+
+TCP 53 - DNS zone transfers (DNS data across network)
+
+TCP 135 - MS RPC Endpoint
+
+TCP/UDP 137 - Netbios Naming Serice
+
+TCP 139 - SMB over NetBIOS
+
+UDP 161 - SNMP
+
+TCP/UDP 389 - LDAP
+
+TCP 445 - SMB over TCP
+
+TCP 3268 - Global Catalog Service (stipped down AD)
+
+
+Misdirection
+------------
+Change default SSID to other manufacturer
+
+Change admin account names (root on windows etc.)
+
+
+NetBIOS (Often older machines, such as WinXP)
+---------------------------------------------
+netstat -a <IP target> (Find services, name of domain etc.)
+
+net use \\<IP target>\ipc$ "" /user:"" (open connection)
+
+winfo <IP target> -n -v (null session kit, password policy, lockout policy, user accounts)
+
+NetBIOS Enumerator (tool)
+
+SuperScan4 (tool)
+
+
+Security identifiers (SID, find admin account)
+----------------------------------------------
+Admin got SID -500
+
+sid2user
+
+user2sid
+
+dsget group
+
+
+SNMP (community strings)
+------------------------
+Read only, default pw is public
+
+R/W, default pw is private
+
+Version 1 is unsafe
+
+Version 2 has some enhancements
+
+Version 3 can restrict access, but may enable v1 and v2 by default
+
+MIB Walker (Linux, or other Solarwinds MIB walk, enumerate the MIB tree of connected SNMP devices)
+
+
+LDAP (Active directory)
+-----------------------
+JXplorer, Hyena (Tools to enumerate AD)
+
+Show overview (schema, group accounts, user accounts, attributes, hardware info)
+
+Sniff session information to expand schema mapping
+
+
+NTP (Network Time Protocol, find IP source of ntp)
+--------------------------------------------------
+ntptrace (Linux)
+
+ntpdc
+
+ntpq > host  (host data and time info)
+     > peers (peers accessing same ntp server)
+
+
+SMTP (Simple mail transfer protocol)
+------------------------------------
+NetScanTools pro (wide tool, email validate, SMTP server test)
+
+nslookup > set type=mx (find mail exchanger)
+         > <target>
+
+smtp-user-emum (kali, have a names.txt ready to check for usernames, see help)
+
+smtp-user-emum -M VRFY -u <target>@gmail.com -t 173.194.193.109:587 (verify that a gmail account is live using google smtp from nslookup)
+
+
+DNS
+---
+Various tools in kali
+
+dnsrecon -d <domain target address>
+
+
+Other targets for enumeration
+-----------------------------
+IPSec
+
+Voip
+
+RPC (nmap -sR <target IP>-254)
+
+
+Linux enumeration
+-----------------
+enum4Linux
+
+uname -a (system info and OS version)
+
+cat /proc/cpuinfo
+
+cat /etc/passwd (user info at bottom)
+
+cat /etc/shadow (encrypted passwords)
+
+pinky (whos logged in)
+
+w (who logged in at what are they doing)
+
+lastlog (users logged in last)
+
+cat /etc/sudoers (privileges)
+
+ps aux | <user> (all services running by for example root)
+
+cat /etc/network/interfaces
+
+
+
+
+
+
+
+
+
+
+

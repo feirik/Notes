@@ -1,0 +1,39 @@
+Detecting sniffing
+------------------
+NICs running in promiscious mode send DNS packet due to ping requests for IPs not present on network
+
+AntiSniff
+
+Nmap (nmap --script=sniffer-detect <ip address>)
+
+SniffDet
+
+
+Rogue access points
+-------------------
+
+
+DCHP assaults
+-------------
+
+
+CAM table flood
+---------------
+Flood switch with packets so it acts as a hub, then sniff all packets across switch
+
+
+ARP poisoning
+-------------
+
+
+DNS poisoning
+-------------
+
+
+Tools
+-----
+Cain and Abel
+
+Ettercap
+
+yersinia (DCHP CAM flood)

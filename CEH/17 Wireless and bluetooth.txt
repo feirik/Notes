@@ -1,0 +1,89 @@
+Detection
+*********
+
+inSSIDer
+--------
+
+
+NetSurveyor
+-----------
+
+
+Vistumbler
+----------
+
+
+Wigle.net (wireless data worldwide)
+-----------------------------------
+
+
+Kismet
+------
+
+
+iStumbler
+---------
+
+
+Wi-Fi Manager (mobile)
+----------------------
+
+
+miniStumbler (mobile)
+---------------------
+
+
+Sniffing
+********
+
+Wireshark
+---------
+
+
+AirSnort
+--------
+
+
+Aircrack-ng (suite of wireless tools)
+-------------------------------------
+
+
+Cain and Abel
+-------------
+
+
+Reaver
+------
+
+
+Bluetooth
+*********
+
+Btscanner (kali)
+----------------
+
+
+Spooftooph(kali)
+----------------
+
+
+BlueMaho(kali)
+--------------
+
+
+Bluesnarfer
+-----------
+
+
+btCrawler
+---------
+Discover devices and services running
+
+
+Blue Alert
+----------
+
+
+BluetoothView
+-------------
+

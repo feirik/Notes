@@ -1,0 +1,131 @@
+Use different search motors (bing, google etc.)
+
+Google-fu
+---------
+Google dorks (https://github.com/BullsEye0/google_dork_list/blob/master/google_Dorks.txt)
+
+GHDB (https://www.exploit-db.com/google-hacking-database)
+
+dark knight (space assumes AND)
+
+dark OR knight (specify OR)
+
+"dark knight" batman (specifiy with qoutes)
+
+batman -joker (exclude from results)
+
+cache: (display googles cached version of site)
+
+link: (Shows a list of web pages that have link to target)
+
+related: (similar web pages)
+
+info: (View information google has on target)
+
+allintitle: (limits results to websites with all search words in title)
+
+intitle: (limits results to documents that contains each search word in the title)
+
+allinurl: (limits results to webpages with all search words in the url)
+
+inurl: (limits results to documents that contain search words in url)
+
+
+WinHTTrack
+----------
+Download a site from contents, find hidden files
+
+
+Link extractor
+--------------
+Find out where links are going to
+
+
+whois
+-----
+whois.domaintools.com
+
+whois <site> (kali)
+
+
+ping router packet size
+-----------------------
+ping <site> -f -l <size> (ping target with a large amount of size bytes as data to check if router accepts large packets)
+
+ping hackthissite.org -f -l 1300
+
+
+traceroute
+----------
+Note response time and dropped packets
+
+
+Job search sites
+----------------
+Search linkedin, finn, etc. (Current need for x technology, want y technology for upgrade)
+
+Reveal tech stack and IDS/monitoring
+
+Network design and implementation --> weak network security?
+
+Find employees (Skills reveal company tech stack)
+
+
+netcraft (What tech is site running)
+------------------------------------
+netcraft.com
+
+Enter site in What is that site running
+
+
+wayback machine
+---------------
+archive.org/web/
+
+Find comments in old versions of source code
+
+Find out recent changes
+
+
+metagoofil (kali)
+-----------------
+metagoofil -d <site> -t pdf,docx,pptx,xlsx -l 30 -n 10
+
+
+Facebook
+--------
+Pw-info
+
+Pet names
+
+University
+
+Graduation year
+
+
+Linkedin
+--------
+Skills for employees
+
+Group activity (might tell what employees are struggling with)
+
+
+inspy for linkedin (kali)
+-------------------------
+inspy --empspy /usr/share/inspy/wordlists/title-list-large.txt <company name> (get overview of all employees on linkedin for a company)
+
+----------------------------
+Various email tracking tools
+----------------------------
+Social engineering
+
+
+Other google things
+-------------------
+Goolink Scanner
+
+Google Hack Honeypot
+
+SearchDiggity
+
+GooScan

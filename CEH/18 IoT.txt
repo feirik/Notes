@@ -1,0 +1,24 @@
+Thingful (open IoT data worldwide)
+----------------------------------
+
+
+IoTSeeker
+---------
+Scan for IoT devices and check if uses default password
+
+
+beStorm
+-------
+Smart fuzzer to find vulns
+
+
+IoT Inspector
+-------------
+Inspect firmware on devices
+
+
+Long nmap scan
+--------------
+nmap -n -Pn -sSU -pT:0-65535,U:0-65535 -v -A -oX <output xml name> <IP addr> (Remove UDP if short time)
+
+Check for port 80 for example

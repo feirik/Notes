@@ -1,0 +1,62 @@
+Netsparker (dynamic analysis tool)
+----------------------------------
+Crawls site structure of site
+
+
+Directory transversal
+---------------------
+if =file in url, attempt to ../../ etc. in url request to different files
+
+
+Burp Suite
+----------
+
+
+OWASP ZAP (dynamic analysis similar to Burp)
+--------------------------------------------
+
+
+Fiddler (HTTP proxy debugging tool)
+-----------------------------------
+Tamper with untrusted data
+
+
+Banner grab
+-----------
+wget --server-response <url>
+
+
+Server fingerprinting
+---------------------
+nmap -T4 -O -A -v <url>
+
+
+WinHTTrack Website Copier (get local copy)
+------------------------------------------
+For example search for keywords such as password using notepad++ on all files
+
+
+passivetotal.org
+----------------
+Look up IP address, see which other IPs are associated to it through reverse DNS lookup
+
+Find related assets running on the same IP
+
+whois info
+
+
+HTTPRecon
+---------
+Find underlying server infrastructure data through fingerprinting
+
+
+Brute force
+-----------
+Use Burp Suite intruder at variable possible to crack
+
+
+XSS
+---
+xssposed.org
+
+XSS evaison cheat sheet (owasp.org)

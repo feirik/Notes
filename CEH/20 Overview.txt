@@ -1,0 +1,558 @@
+Recon and footprinting
+**********************
+Defining the scope of the pen test, limitations
+
+Bing, google, yahoo, facebook, twitter, linkedin, employees
+
+Google hacking
+--------------
+SiteDigger
+
+Google hacking database (GHDB)
+
+MetaGoofil
+
+
+Website Footprinting
+--------------------
+BlackWidow
+
+Web Site Copier
+
+HTTrack
+
+
+Email footprinting
+------------------
+NSlookup
+
+eMailTrackerPro
+
+Email Lookup
+
+PoliteMail
+
+
+Competitive intelligence
+------------------------
+Hoovers Inc
+
+Business Wire
+
+LexisNexis
+
+
+WHOIS Recon
+-----------
+SmartWhoIs
+
+Domain Dossier
+
+SuperScanner
+
+
+DNS Recon
+---------
+DNSstuff
+
+SamSpade
+
+NSLookup
+
+
+Network Recon
+-------------
+Path Analyzer
+
+VisualRoute
+
+Network Pinger
+
+
+Scanning the target
+*******************
+Nmap
+
+Banner grab (Linux)
+-------------------
+nc <target> 80
+head / http/1.0 (when connected)
+
+Vuln scanners
+-------------
+Nessus
+
+MBSA
+
+Retina CS
+
+Proxy tools
+
+
+Enumeration
+***********
+Find network range through whois and public facing sites
+
+Calculate subnet mask
+
+Port scanning hosts with nmap
+
+NetBIOS enumeration (hyena, SuperScan)
+
+SNMP enumeration
+
+LDAP enumeration
+
+NTP enumeration (NTP fingerprint utility)
+
+SMTP enumeration
+
+DNS enumeration
+
+
+System hacking
+**************
+Mainly based on successful scanning and/or enumeration
+
+Password cracking
+-----------------
+Find complexity of passwords
+
+Dictionary attacks
+
+Brute force attacks (more useful if done offline against hashed databases)
+
+Password guessing
+
+Send a torjan, spyware (very active)
+
+Hash injection (passing the hash)
+
+Wire sniffing (clear text passwords)
+
+MiTM
+
+Replay attack
+
+Rainbow Table attack
+
+Distributed Network Attack
+
+
+Escalating privileges
+---------------------
+Password recovery tools to alter register entries
+
+
+Focusing on service accounts
+----------------------------
+Reuse of passwords between service accounts
+
+Run spyware from the accounts
+
+
+Covering tracks
+---------------
+Installing rootkit
+
+Stego
+
+Alternate data streams
+
+Turn of auditing
+
+Log flooding
+
+
+Sniffing
+********
+Done after gaining access to a target
+
+
+MAC flooding
+------------
+yersinia
+
+
+DHCP starvation
+---------------
+broadcast DCHP request with spoofed MAC addresses
+
+Replace DCHP server with a VR server
+
+
+ARP poisoning
+-------------
+Cain and Abel
+
+
+MAC spoofing
+------------
+Smac
+
+
+IRDP spoofing
+-------------
+
+
+DNS spoofing
+------------
+
+
+Cache poisoning
+---------------
+Change proxy setting of web browser interface, redirect to other site
+
+
+Proxy server DNS poisoning
+--------------------------
+
+
+Session hijacking
+*****************
+Sniff packets to locate sessions with session IDs in url
+
+OWASP ZAP
+
+Burp Suite
+
+Crack session ID encryption
+---------------------------
+
+
+Phish for a session fixation
+----------------------------
+
+
+Targeting web servers
+*********************
+Targets from scanning phase
+
+
+Banner grab
+-----------
+Netcraft
+
+HTTPRecon
+
+
+Crawling
+--------
+
+
+Vuln scanners like Nessus
+-------------------------
+
+
+HTTP response splitting
+-----------------------
+
+
+Brute force FTP or SSH
+----------------------
+
+
+Session hijacking
+-----------------
+
+
+MiTM
+----
+
+
+Metasploit
+----------
+
+
+Targeting web applications
+**************************
+Robots.txt
+
+Cookie information
+
+Error pages and codes (send invald request)
+
+Burp suite
+
+OWASP ZAP
+
+Nmap
+
+Testing for types and extentions of files in web app (.asp, .html, .php, .exe)
+
+O/S fingerprinting (Nmap)
+
+
+Configuration management
+------------------------
+ID ports using SSL/TLS
+
+Test app config (log files)
+
+Test for file extention handling
+
+Look for old backup files
+
+Look for admin interfaces
+
+Test for HTTP methods and cross site tracing (XST)
+
+Test for rich internett application (RIA) cross domain policy
+
+
+Authentication testng
+---------------------
+Checking password functions
+
+Checking remember me function
+
+Test for logout and browser cache management
+
+Check for logout timeout
+
+Captcha vulns
+
+
+Session management
+------------------
+Look at issued cookies (multiple samples, how cookie is generated)
+
+Look at cookie attributes (Burp Proxy, OWASP ZAP)
+
+Tamper data (Firefox)
+
+Exposed session variables
+
+Cross site request forgery
+
+
+Authorization Testing
+---------------------
+Test bypassing of auth
+
+Test for privilege escalation
+
+
+Data validation
+---------------
+Cross site scripting (XSS - OWASP ZAP, Burp Proxy, XSS proxy)
+
+Stored XSS
+
+Reflective XSS
+
+Cross site flashing
+
+Try O/S commands in URL
+
+Test for buffer overflow (LadyBug)
+
+HTTP splitting (see whether its possible to get character return in response)
+
+Upload file to exploit user when opened
+
+
+SQL injection testing
+---------------------
+Standard injection
+
+Union Query injection
+
+Blind injection
+
+Stored procedure injection
+
+ORM injection
+
+
+Others
+------
+LDAP injection (LDAP browser)
+
+XML injection
+
+SSI injection
+
+XPath injection
+
+IMAP/SMTP injection
+
+
+Web services
+************
+SOAP lite
+
+Curl
+
+UDDI browser
+
+
+Look for WSDL entry point
+-------------------------
+Foundstone
+
+Pass a malformed SOAP message to XML parser
+
+Pass malicious info on HTTP get string
+
+
+AJAX testing
+------------
+Enumerate AJAX call end points
+
+Look at HTML and JAVA files
+
+Proxies and sniffers destined for end points
+
+
+Wi-Fi testing
+*************
+
+Discovering targets
+-------------------
+NetStumbler
+
+Check if WEP encryption is in use
+
+
+WEP testing
+-----------
+See if SSID is visible
+
+Sniff packet (AirSnort, AirCrack)
+
+SSID hidden (deauth attack, find SSID)
+
+
+WPA/WPA2 testing
+----------------
+Dictionary attack
+
+Aire-suite of tools
+
+Deauth attack, sniff auth handshake
+
+PSK attack (AirCrack)
+
+
+Mobile
+******
+Check if O/S version can be rooted/jailbroken
+
+Check web browser sandbox environment
+
+Check SQLlite database vulns
+
+Woodpecker (Android)
+
+Metasploit
+
+
+Firewall/IDS
+************
+Recon the target
+
+Port scan
+
+Did we detect a firewall?
+
+Banner grab (if no)
+
+Firewalking
+
+
+Testing firewall
+----------------
+Disable trusted host
+
+Spoof the IP
+
+Perform source routing
+
+IP fragmentation
+
+Fire up VPN
+
+Use Proxy
+
+ICMP tunnel
+
+ACK tunnel (ACK cmd)
+
+HTTP tunnel
+
+SSH tunnel
+
+
+Testing IDS
+-----------
+Disable trusted host
+
+Insertion attack
+
+Evasion attack
+
+DoS attack
+
+Obfuscation test
+
+False positives (overload log files)
+
+Session splicing
+
+Unicode evasion
+
+Fragmentation (timing differences between IDS and target)
+
+Overlapping fragments
+
+TTL attack
+
+Invalid RST packets
+
+Urgency flag test
+
+Polymorphic shellcode
+
+ASCII shellcode
+
+Application layer (compressed files, jpeg, mp3 etc.)
+
+Encryption & flood (overloading IDS)
+
+Post connection SYN
+
+Pre-connection SYN
+
+
+Cloud testing
+*************
+Lock-in issues (subcriber cant switch to another cloud provider)
+
+Governance issues (service license agreement)
+
+Compliance issues
+
+Resource isolation
+
+Anti-malware applications
+
+Cloud provider: firewalls
+
+Cloud provider: Strong authentication
+
+Cloud provider: Encrypts data in transit
+
+Cloud provider: encrypts files
+
+Encryption key management
+
+Cloud provider: Data retention
+
+Users: Safe Internet Practices
+
+Vulnerability assessment
+
+Cloud provider: Auditing features
+
+Automated cloud testing

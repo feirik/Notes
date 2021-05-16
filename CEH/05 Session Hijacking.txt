@@ -1,0 +1,11 @@
+SessionIDs are the key to the castle
+------------------------------------
+Fiddler (OSI level 7 analyser like wireshark for web sites)
+
+OWASP ZAP (Manipulate session IDs)
+
+Burp Suite
+
+Netsparker (Dynamic analysis of web pages)
+
+Ethercap

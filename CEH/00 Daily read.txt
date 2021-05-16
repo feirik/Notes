@@ -1,0 +1,39 @@
+SANS
+
+darkreading.com
+
+Microsoft threat intel
+
+FireEye - Recent 0-day exploits
+
+alienvault.com - Threat Intel Digest
+
+Symantec - Security intel
+
+
+Vulnerability research
+----------------------
+Operating system vendors
+
+Application vendors
+
+Hardware vendors
+
+Manufacture vendors
+
+Component vendors
+
+www.hackerstorm.co.uk
+
+www.eccouncil.org
+
+www.securitymagazine.com
+
+www.securityfocus.com
+
+www.blogs.windowssecurity.com
+
+www.hackersjournals.com
+
+www.zdnet.com/topic/security
+
