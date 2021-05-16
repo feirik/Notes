@@ -1,0 +1,87 @@
+Initiate git
+------------
+git init (in folder)
+
+
+Add a file to index
+-------------------
+git add <filename> (add only filename)
+
+git add . (add all changes)
+
+
+Commit changes
+--------------
+git commit -m "Commit message" (Commit changes to head, alot of options available to to dryruns etc.)
+
+
+Push changes to remote server
+-----------------------------
+git remote add origin <serverURL> (Add remote server address)
+
+git push origin master (Push the head to the remote server)
+
+
+Branching
+---------
+git branch <branchName> (Create new branch)
+
+git checkout <branchName> (Switch to branch, or back to master)
+
+git branch -d <branchName> (Delete branch)
+
+
+Merging
+-------
+git checkout master (Switch to master)
+
+git merge <branchName>
+
+If there is a merge conflict, the merge will return an error. The conflict file will include a message where the conflict is.
+Once the conflict is sorted:
+
+git add <conflictFilename>
+
+git commit -m "Merge confilct commit message"
+
+
+Git history
+-----------
+git log --graph --oneline --decorate --all (Visual history of git events)
+
+git log -r (see code changes in log)
+
+
+Git tagging
+-----------
+git tag (see tags)
+
+git show <tagName> (show what tag is)
+
+
+Version control
+---------------
+git checkout -b <restoredBranchName> <commitHexCode> (Create a branch with historical commit)
+
+git checkout -- <filename> (restore head version of a file, deleting changes to the working tree)
+
+
+Clone a repo
+------------
+git clone /path/to/repository
+
+
+Git pull/fetch/clone
+--------------------
+git pull (does a git fetch and a git merge to get the latest version of a remote repo)
+
+git fetch (more manual to keep repo up to date, but not merging automatically)
+
+
+
+
+Pull latest remote repo version
+-------------------------------
+git remote add origin <serverURL> (Add remote server address)
+
+git pull
