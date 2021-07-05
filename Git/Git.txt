@@ -78,6 +78,11 @@ git pull (does a git fetch and a git merge to get the latest version of a remote
 git fetch (more manual to keep repo up to date, but not merging automatically)
 
 
+Set user
+--------
+git config --global user.name "username"
+
+git config --global user.email "email address"
 
 
 Pull latest remote repo version
