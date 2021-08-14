@@ -17,8 +17,11 @@ Wigle.net (wireless data worldwide)
 -----------------------------------
 
 
-Kismet
-------
+Kismet (Gather info about networks and devices - also bluetooth)
+----------------------------------------------------------------
+www.kismetwireless.net DL
+
+
 
 
 iStumbler
@@ -46,6 +49,19 @@ AirSnort
 
 Aircrack-ng (suite of wireless tools)
 -------------------------------------
+airmon-ng check (check if interfering services are running)
+
+airmon-ng check kill
+
+airmon-ng start wlan0 (or other wlan0 for wifi-adapter to be set to monitor mode)
+
+airodump-ng wlan0mon (show networks nearby)
+
+airodump-ng wlan0mon --bssid <target MAC> -c <target channel>
+
+aircrack-ng <captureFile.cap> (crack WEP)
+
+possible to deauth WPA/WPA2 networks and capture connection packet to try crack password
 
 
 Cain and Abel
@@ -54,6 +70,12 @@ Cain and Abel
 
 Reaver
 ------
+
+
+Wifi-Pumpkin (create rogue access points with logins to harvest credentials)
+---------------------------------------------------------------------------
+(DL from Github)
+
 
 
 Bluetooth

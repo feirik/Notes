@@ -4,6 +4,7 @@ Defining the scope of the pen test, limitations
 
 Bing, google, yahoo, facebook, twitter, linkedin, employees
 
+
 Google hacking
 --------------
 SiteDigger

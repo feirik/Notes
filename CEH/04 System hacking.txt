@@ -16,6 +16,169 @@ Enumeration
 - Resources
 
 
+MSFVenom (payload generator and shellcode encoder)
+--------------------------------------------------
+msfvenom --list payload | grep <operating system>
+
+msfvenom -p windows/meterpreter_bind_tcp -a x86 -f exe -o bind.exe --platform windows (output windows payload to .exe)
+
+msfvenom --list encoder (options to evade antivirus, might have to replace bad characters)
+
+
+Rubeus (Kerberoasting and AS-REP roasting - Windows AD)
+-------------------------------------------------------
+(Open source privilege escalation, need user level access to get hash credentials for service accounts - DL at Github)
+
+Transfer .exe to victim PC
+
+Rubeous.exe kerberoast /format:hashcat /outfile:kerberoast.txt
+
+Rubeous.exe asreproast /format:hashcat /outfile:as-rep-roast.txt
+
+hashcat -m 13100 kerberoast.txt <dictionary file>
+
+hashcat -m 18200 as-rep-roast.txt <dictionary file>
+
+
+Luckystrike (generate malicious documents)
+------------------------------------------
+(Download from github through powershell, Win7-10 required)
+
+Menu based system
+
+Possible to import payloads from for example MSF
+
+
+King-Phisher (framework for creating phishing emails)
+-----------------------------------------------------
+Email templates from github repo
+
+
+macro_pack (automate obfuscation and generation of office documents
+------------------------------------------------------------------
+(DL from github)
+
+
+Empire (Post-exploit persistance tool using powershell)
+-------------------------------------------------------
+Starkiller - GUI for interfacing with Empire server (github)
+
+
+Proxy-chains (Redirects TCP packets to follow through specified proxy)
+----------------------------------------------------------------------
+(Open source - github DL)
+
+Possible to redirect external traffic through external proxies (mask source IP) as well as internal compromised hosts (bypass firewalls)
+
+Set config in /etc/proxychains4.conf
+
+socks5		127.0.0.1 <portNumber> (add in .conf file to tunnel through ssh)
+
+
+
+Invoke-obfuscation (Powershell and script obfuscation)
+------------------------------------------------------
+(Open source - Github DL)
+
+Test code in a virtual server in similar environment as target to test evasion
+
+
+Veil (Defense evasion framework - multiple methods)
+---------------------------------------------------
+(DL from github - Create unique payload signatures to evade anti-virus etc.)
+
+
+Hashcat (offline pw cracker)
+----------------------------
+(hashcat.net, can also crack pw protected docx and excel files)
+
+
+John the ripper (offline pw cracker)
+------------------------------------
+(Open source - DL from github, get seclist password lists from github if needed)
+
+
+TCH Hydra (brute force network logins)
+--------------------------------------
+(DL from github)
+
+
+LaZagne (gather passwords found locally on PC from browsers, admin tools, OS)
+-----------------------------------------------------------------------------
+(DL from github)
+
+
+Mimikatz (extract plain text passwords, hashes, kerberos tickets and PIN codes from memory)
+-------------------------------------------------------------------------------------------
+(DL from github, also possible to do lateral movement through pass the hash and ticket attacks)
+
+Possible to do mimidump if not possible to transfer .exe to target
+
+Also possible to do memory dump from task manager and analyze with Mimikatz
+
+
+Respoder (LLMNR, NBT-NS, MDNS attack, getting hashes that can be cracked)
+-------------------------------------------------------------------------
+(Github DL - Compatible with hashcat and John)
+
+Sniff for connections during the morning or when people return from lunch
+
+./Responder.py -I <eth# interface> -r -f (start poisoning services)
+
+
+PsExec (Execute processes remotely on Windows targets)
+------------------------------------------------------
+(SysAdmin tool originally - www.sysinternals.com)
+
+psexec \\<target ip> <command> (run command on target windows machine)
+
+psexec \\<target> -c <program.exe>
+
+
+WMIOps (Windows management instrumentation, execute commands on remote Windows targets from exploited machine)
+--------------------------------------------------------------------------------------------------------------
+(Lateral movement)
+
+
+Infection Monkey (Auto lateral movement testing for network infections and breaches, then report)
+-------------------------------------------------------------------------------------------------
+Gaurdicore website DL
+
+
+PowerSploit (Collect data from exploited target)
+------------------------------------------------
+(Keylogger, screenshots, audio etc. DL from github, PowerShellMafia)
+
+Need to obfuscate code to evade defenses
+
+
+CrackMapExec (Test Windows AD networks)
+---------------------------------------
+
+
+Command and control
+-------------------
+Covenant
+
+Pupy
+
+Empire
+
+PoshC2
+
+Merlin
+
+
+Dnscat2 (DNS tunneling tool for exfil data)
+-------------------------------------------
+(DL from github)
+
+
+UACMe (Privlege escalation tool to bypass Windows User Account Control)
+-----------------------------------------------------------------------
+(Suite of exploits against misconfigured servers - DL from github)
+
+
 Password paths
 --------------
 Win: C:\windows\system32\config\sam
@@ -61,6 +224,7 @@ Delete private data
 Clear logs (correct way, not just leave clear log entry)
 
 regedit > HKEY_LOCAL_MACHINE > Software > Microsoft - Microsoft Management Console > CurrentVersion > Explorer > Delete all entries but default (deletes all recently opened document entries)
+
 
 Advanced
 --------

@@ -1,3 +1,23 @@
+Sn1per
+------
+(Uses multiple tools such as Nmap, theHarvester, WafWoof and processes output in an overview - Github DL)
+
+sudo -i (Sn1per needs to be run as root)
+
+sniper -t <domain name> -m stealth -o -re (passive scans only)
+
+sniper -t <domain name> (passive and active scan - active part is noisy)
+
+
+Nikto (web server and web app weakness identification)
+------------------------------------------------------
+(space bar gives time remaining)
+
+nikto -host <domain name> (noisy and intrusive)
+
+various plugins
+
+
 hping3
 ------
 hping3 -1 <192.168.0.x> --rand-dest -I eth0 (random icmp sweep)
@@ -21,7 +41,7 @@ nmap -sX -v 192.168.0.10 (send different flags to target, no response, port is o
 
 Fin scan (Not for Windows targets)
 ----------------------------------
-nmap -sF -v 192.168.0.10 (send FIN to target, no response, port is open RESET ACK, port is closed)
+nmap -sF -v 192.168.0.10 (send FIN to target, no response, port is open, if RESET ACK, port is closed)
 
 
 UDP scanning
@@ -64,6 +84,18 @@ Nessus
 Proxying
 --------
 Pwn machines, create a proxy chain for external pwned machines and internal ones
+
+
+Proxy-chains (Redirects TCP packets to follow through specified proxy)
+----------------------------------------------------------------------
+(Open source - github DL)
+
+Possible to redirect external traffic through external proxies (mask source IP) as well as internal compromised hosts (bypass firewalls)
+
+Set config in /etc/proxychains4.conf
+
+socks5		127.0.0.1 <portNumber> (add in .conf file to tunnel through ssh)
+
 
 Proxifier
 

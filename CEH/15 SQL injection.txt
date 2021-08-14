@@ -2,6 +2,13 @@ SQL Inject Me (browser plugin)
 ------------------------------
 
 
+sqlmap (identify SQL vulns)
+---------------------------
+(sqlmap.org - Code on github)
+
+python sqlmap.py -u "<URL>" -p <parameter> --cookie="<PHPSESSID>"
+
+
 Burp Suite
 ----------
 Fuzz testing

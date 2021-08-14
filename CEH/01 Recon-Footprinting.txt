@@ -1,4 +1,53 @@
+OWASP Amass
+-----------
+(Find attack surface through DNS queries, open source databases, certificates, APIs and web archives - Github DL)
+
+amass enum -d <domain name> -src -ip -dir <outputFile>
+
+amass enum -d <domain name> -src -ip -brute -dir <outputFile>
+
+amass intel -asn <autonomous system number for target domain> (find related sites, ASN is found from scan above)
+
+amass -intel -whois -d <domain name> -dir <outputFile> (reverse whois)
+
+amass db -dir <amass outputfile> -list
+
+amass db -dir <amass outputfile> -enum
+
+amass viz -dir <amass outputfile> -d3 (outputs results visually as html file)
+
+
+TheHarvester
+------------
+(Uses search engines, DNS records and open ports - Github DL)
+
+python3 ./theHarvester.py -d <domain name> -l 500 -b google,bing,yahoo (limit to 500 first results - VPN recommended)
+
+python3 ./theHarvester.py -d <domain name> -c (try to brute force DNS names)
+
+python3 ./theHarvester.py -d <domain name> -l 500 -b google,bing,yahoo -n (DNS lookup - VPN recommended)
+
+python3 ./theHarvester.py -d <domain name> -b linkedin (Open linkedin names - VPN recommended)
+
+
+Recon-ng (Technical info, credentials from various sources)
+-----------------------------------------------------------
+(Framework consisting of many different modules - Recommend using docker to install, guide in github)
+
+Menu based UI, see documentation
+
+Web UI
+
+
+Maltego
+-------
+(Technical info and people info - DL from www.maltego.com)
+
+Many use cases with transforms, somewhat limited by community edition
+
+
 Use different search motors (bing, google etc.)
+
 
 Google-fu
 ---------

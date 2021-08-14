@@ -19,6 +19,28 @@ TCP 445 - SMB over TCP
 TCP 3268 - Global Catalog Service (stipped down AD)
 
 
+ADRecon (Probes AD and generates report of AD environment)
+----------------------------------------------------------
+(DL from github, also available as AzureADRecon)
+
+net user /domain <username> (probe AD from info about a user manually)
+
+From powershell:
+
+.\ADRecon.ps1 (Can output report to excel-file or CSV)
+
+.\ADRecon.ps1 -Collect Kerberoast -OutputType CSV
+
+
+Bloodhound (Probes AD and uses graph theory to show unintended relationships for ADs)
+-------------------------------------------------------------------------------------
+(DL from github)
+
+Web UI (change default pw for neo4j)
+
+Run Sharphound.ps1 (specify options for more stealthy) or Sharphound.exe 
+
+
 Misdirection
 ------------
 Change default SSID to other manufacturer

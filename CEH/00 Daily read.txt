@@ -11,6 +11,15 @@ alienvault.com - Threat Intel Digest
 Symantec - Security intel
 
 
+Focused threat intel
+--------------------
+https://www.nationalisacs.org/member-isacs-3 (industry threats)
+
+www.virustotal.com/graph/
+
+www.infragard.org
+
+
 Vulnerability research
 ----------------------
 Operating system vendors
