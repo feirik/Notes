@@ -1,0 +1,45 @@
+Brief
+-----
+Process structured data into outputs based on rows, columns and search patterns.
+
+
+     $1     $2   (Whole row is $0)
+     COL1 | COL2|..
+------------------
+ROW1|     |     |
+ROW2|     |     |
+..
+
+Working with rows
+-----------------
+awk 'END{print NR}' <inputFile> (print the record/row number at the end of the program execution)
+
+awk '{print NF}' <inputFile> (print the number of columns for all entries)
+
+awk '{NF > 0}' <inputFile> > <outputFile> (delete blank lines from a file)
+
+awk '{print $0}' <inputFile> (print all columns in inputfile) 
+
+
+Searching for cell contents
+---------------------------
+awk '/<pattern search>/ {print $0}' <inputFile> (print columns matching pattern)
+
+awk '{ if($1="searchString") {print $0} else {print $1}}' <inputFile> (print based on value in single cell)
+
+
+Select format separator
+-----------------------
+awk -F , '{print $1}' <inputFile> (print first entry in comma separated list)
+
+
+List files owned by user
+------------------------
+ls -la | awk '{ if($3=="<user>") {print $0}} (print rows from ls output where user is owner)
+
+
+Format using printf
+-------------------
+awk '{printf "%s\n",$0}' <inputFile>
+
+
