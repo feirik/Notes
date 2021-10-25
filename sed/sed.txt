@@ -1,0 +1,17 @@
+Brief
+-----
+Sed is a stream editor often used for filtering and transforming text.
+
+
+Basic substitute
+----------------
+sed 's/find/replace/' <origFile >newFile (replace first instance in a line)
+
+sed 's/find/replace/g' <origFile >newFile (replace all instances, global flag)
+
+sed -i 's/find/replace/g' origFile (replace all instances and write to file)
+
+
+Delete lines by pattern
+-----------------------
+sed '/<linePattern>/d' filename
