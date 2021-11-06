@@ -1,0 +1,31 @@
+Basics
+------
+ssh username@<ip or hostname> -v(v)(v) (connect to server on default port 22, with optional verbose debug info)
+
+ssh username@<ip or hostname> -p <port> (non-default ssh port)
+
+
+Ssh-keys
+--------
+ssh-keygen -b 4096 (generate id_rsa and id_rsa.pub in ~/.shh)
+
+chmod 600 ~/.shh/id_rsa (private key needs to be read only for ssh to accept it)
+
+(copy id_rsa.pub to ~/.ssh/authorized_keys on target)
+
+ssh -i <private key> username@<ip or hostname> (pass in private key)
+
+
+Secure copy files
+-----------------
+scp <file> username@<ip or hostname>:/tmp (copy file over ssh to /tmp)
+
+
+Local port forwarding (access remote resources through ssh)
+-----------------------------------------------------------
+ssh -fNL <local port>:<internal target IP>:<internal target port> <publicly available IP> (forward on port 5000, -f run in background, -N dont execute remote command) 
+
+ssh -fNL 5000:127.0.0.1:80 <ip available to ssh into> (forward port 80 webserver on loopback to this port 5000)
+
+pkill ssh (kill ssh run in background)
+
