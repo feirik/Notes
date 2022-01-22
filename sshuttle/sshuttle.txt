@@ -1,0 +1,19 @@
+sshuttle
+--------
+sshuttle -e 'ssh -q -o CheckHostIP=no -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null' -r user@<some-ip>:2222 <remote_subnet(s)/CIDR>
+
+Access resources inside ssh-network as if you were ssh'ed, need to specify IP
+
+
+sshuttle with dns
+-----------------
+sshuttle -e 'ssh -q -o CheckHostIP=no -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null' --dns -r user@<some-ip>:2222 <remote_subnet(s)/CIDR>
+
+Access resources inside ssh-network as if you were ssh'ed, can use URL or IP
+
+
+socat (forward individual ports to localhost)
+---------------------------------------------
+socat tcp-listen:8888,reuseaddr,fork exec:"ssh -o ControlPath=~/socatSocket/controlsocket user@<ssh IP or url> exec socat - tcp\:<target URL>\:<target port>"
+
+Forward target url and port from inside SSH connection to localhost:8888, make sure ~/socatSocket exists
