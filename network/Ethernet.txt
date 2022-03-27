@@ -1,0 +1,60 @@
+Ethernet is a layer 1-2 protocol often used in wireless (IEEE 802.11) or cabled (IEEE 802.3) applications.
+
+Generally used as a LAN protocol.
+
+
+MAC address (used for layer 2 addressing, abstraction to hardware)
+------------------------------------------------------------------
+MAC address is intended to be a set hardware address for a network interface card (NIC), but can be spoofed
+
+Length is 6 octets, same as 12 bytes, or same as 48-bits
+
+3 first octets represent Organizationally Unique Identifier (OUI) as manufacturer name
+
+3 last octets is set by manufacturer, often an unique part or sequence number
+
+
+More OUI
+--------
+LSB in first octet of the OUI code represents multicast (1) or unicast (0) for the NIC
+
+2nd LSB in first octet of the OUI code represents locally administrered (1, overridden OUI, often VMs) or globally unique (0, OUI is used)
+
+
+The Ethernet frame (Frame size 64-1522 bytes)
+*********************************************
+Preamble
+--------
+64-bit sequence of 01s to indicate start of frame
+
+Destination MAC
+---------------
+48-bit MAC
+
+Source MAC
+----------
+48-bit MAC
+
+Tag identifiers (optional)
+--------------------------
+16-bits (Tag Protocol Identifier and Tag Control Information, used for some parts of the 802-protocols)
+
+Type of data
+------------
+IPv4, IPv6 or ARP
+
+Data
+----
+Payload carried by the frame, limited to maximum 1500 bytes for standard ethernet
+
+Padding
+-------
+Pad data to make frame large enough for minimum size of 64 bytes for protocol
+
+FCS
+---
+Frame check sequence (integrity checking, calculated during sending and recalculated during receiving to verify)
+
+
+
+

@@ -1,0 +1,56 @@
+Darknet Diaries
+---------------
+10. Misadventures of a Nation State Actor
+
+28. Unit 8200
+
+29. Stuxnet
+
+30. Shamoon
+
+35. Carbanak
+
+53. Shadow Brokers
+
+54. NotPetya
+
+68. Triton (TRISIS)
+
+103. Cloud Hopper
+
+111. ZeuS
+
+(Various physical pen tests and social engineering episodes aswell)
+
+
+mnemonic security podcast (from oldest to newest)
+-------------------------
+OT's role in a CISO's world
+
+You can't protect what you don't know you have (chat with Nozomi Networks)
+
+A chat with KraftCERT (OT CERT)
+
+Security validation
+
+Forensic Readiness (OT)
+
+Technology isn't the problem (OT - Threat hunting)
+
+Nuclear Cyber Security (OT - Governance and threat landscape)
+
+Honeypots (OT)
+
+Buying security products
+
+Does your managed SOC suck?
+
+
+Aperture: A Claroty podcast
+---------------------------
+5. Justin Searle on Pen-Testing ICS
+
+
+Inside the strategy room
+------------------------
+20. Jan 2021 - Boards and cybersecurity (Cybersecurity landscape from an executive management perspective)

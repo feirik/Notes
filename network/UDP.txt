@@ -1,0 +1,42 @@
+User Datagram Protocol is an connectionless (unreliable), low overhead protocol often used for data streaming.
+
+UDP provides check sums for data integrity and port numbers for addressing.
+
+Time-sensitive applications (real time) often use UDP because dropping packets is more efficient than transmission control (TCP).
+
+Applications need to implement reliability and congestion control if using UDP.
+
+Other protocols using UDP is DNS, SNMP, RIP, DHCP.
+
+Ports (0-65535 allowed)
+***********************
+0-1023
+------
+Used for well known services
+
+1024-49151
+----------
+Assigned by Internet Assigned Numbers Authority (IANA)
+
+49152-65535
+-----------
+Dynamic/private/ephemeral ports, used for any purpose
+
+Structure (8-65527 bytes size)
+******************************
+Source port (16 bits)
+---------------------
+Source port number
+
+Dest port (16 bits)
+-------------------
+Destination port number
+
+Length (16 bits)
+---------------------
+Length in bytes
+
+Checksum (16 bits)
+------------------
+Error checking of header and data, all zeros if unused
+

@@ -1,0 +1,48 @@
+Transmission Control Protocol is a connection based delivery protocol for use across a network using TCP ports. (UDP and TCP can share a port number)
+
+TCP first needs to establish a connection using a handshake, then it bi-directionally streams data across the connection and checks acknowledgements of data received.
+
+TCP includes mechanisms for optimizing data transfer and data reliability by varying how often to ask for acks and potentially re-transmits if no ack is receivedmmma.
+
+TCP data is guaranteed to come in order by the use of sequence numbers for the TCP segments.
+
+Three-way handshake
+*******************
+SYN
+---
+Host sends a synchronization request
+
+SYN+AKC
+-------
+Server/host responds with SYN+ACK, verifying that a TCP connection can be started (Stopping at this step is often used for stealth scanning)
+
+ACK
+---
+Client acknowledges previous message and accepts the connection, can now send and receive on socket (IP:TCP port)
+
+FIN
+---
+Initiate closing of the connection, with ACKing if FIN messages
+
+
+Header (20 bytes minimum size - 65535 bytes maximum for TCP packet)
+*******************************************************************
+Addressing
+----------
+Source and destination port numbers
+
+Sliding Window data (how much data to reliably transmit at a time)
+------------------------------------------------------------------
+Sequence numbers, ack numbers, window size fields
+
+Control bits and fields
+-----------------------
+Various control functions and data
+
+Data
+----
+The payload
+
+Misc functions
+--------------
+Integrity checksum and options for connection setup

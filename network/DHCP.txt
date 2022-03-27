@@ -1,0 +1,42 @@
+Dynamic host configuration protocool (DHCP) allows a DHCP server to assign IP addresses automatially instead of statically (manually set).
+
+The protocols uses UDP port 67 and 68 with mainly broadcast messages.
+
+
+Process
+*******
+DHCP Discover
+-------------
+Host (DHCP client) with DHCP enabled sends DHCP Discover message - From IP 0.0.0.0 (unassigned IP) to 255.255.255.255 (broadcast)
+
+DHCP Offer
+----------
+DHCP server responds with an offer for an IP in allowed pool of addresses - From DHCP server IP to 255.255.255.255 (broadcast)
+
+Data includes client IP address, subnet mask, default gateway IP address, DNS IP address, IP lease time and DHCP server IP address.
+
+DHCP Request
+------------
+DHCP client requests to be assigned to the client IP address - From IP 0.0.0.0 (unassigned IP) to 255.255.255.255 (broadcast)
+
+DHCP Ack
+--------
+DHCP server acknowledges the IP assignement (lease) - From DHCP server IP to 255.255.255.255 (broadcast)
+
+DHCP client can now communicate using its IP address on the network
+
+
+Automatic Private IP Addressing (APIPA - DHCP not functioning)
+--------------------------------------------------------------
+Range: 169.254.0.1 - 169.254.254.255
+
+If host is assigned address in this range, no DHCP server in network or malfunctioning DHCP server
+
+Hosts sends out ARP request to check if selected APIPA address is in use
+
+
+Lease time
+----------
+Default lease time is 24h, client asks for a renew of the lease after 50% of time has passed
+
+If there are no available IP addresses from the pool, the DHCP server will fail to offer an IP

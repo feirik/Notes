@@ -1,0 +1,46 @@
+Elements
+--------
+Bacon Frying Produces Salivation
+
+Bits  Frames Packets  Segments
+
+
+Please Do Not Throw Sousage Pizza Away (Physical - Data Link - Network - Transport - Session - Presentation - Application)
+
+Physical (layer 1)
+------------------
+Data transferred as bits over a medium (cable, fiber, wifi etc.)
+
+
+Data Link (layer 2)
+-------------------
+MAC addresses for Ethernet, switching layer, ARP (also layer 3)
+
+
+Network (layer 3)
+-----------------
+IP addresses, the routing layer, fragments data to traverse different networks
+
+
+Transport (layer 4)
+-------------------
+TCP segment/UDP datagram, disassembles the segments into acceptable chunks for Maximum Transmission Unit (MTU) limit
+
+Firewall filtering lists
+
+
+Session (layer 5)
+-------------------
+Start, stop, restart data transfer, tunneling protocols
+
+
+Presentation (layer 6)
+----------------------
+Character encoding, encryption (SSL/TLS) - Often combined with application layer 7
+
+
+Application (layer 7)
+---------------------
+What the user sees is the layer 7 application data - HTTP, FTP, DNS
+
+Firewalls checking application data

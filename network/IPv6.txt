@@ -1,0 +1,43 @@
+Main reason for IPv6 is that the world has run out of addresses to assign for IPv4.
+
+IPv6 consists of a 128-bit address in hex.
+
+
+Address compression
+-------------------
+2600:DDDD:1111:0001:0000:0000:0000:0001
+
+2600:DDDD:1111:0001::0001 (Groups of zeros can be represented by double colon, can only be done once in a representation)
+
+2600:DDDD:1111:1::1 (Same as this, leading zeros are optional)
+
+
+Extended Unique Identifier (EUI-64)
+-----------------------------------
+Use MAC address as part of IPv6 address to create a static unique address for a host (combine 64-bit IPv6 prefix with 48-bit MAC address)
+
+2600:DDDD:1111:0001 + 8e2d:aa    + ff:fe        + 4b:98a7             (Padding fffe in middle of MAC, flip bit in MAC to locally administrered)
+
+IPv6 Subnet prefix  | 3-byte MAC | IPv6 padding | Last 3-byte of MAC
+
+
+Convert MAC byte to locally administrered
+-----------------------------------------
+0 <-> 2 (locally is right side values)
+1 <-> 3
+4 <-> 6
+5 <-> 7
+8 <-> A
+9 <-> B
+C <-> E
+D <-> F
+
+8c:2d:aa:4b:98:a7 converted to locally is 8e:2d:aa:4b:98:a7
+
+
+Subnetting
+----------
+2600:DDDD:1111:    0000:                     0000:0000:0000:0001 (2600:DDDD:1111:1::1/64 in CIDR)
+
+Provided by IANA | Subnet locally assigned | Host portion
+48 bits		 | 16 bits		   | 64 bits 

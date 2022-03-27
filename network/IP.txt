@@ -1,0 +1,95 @@
+The IPv4 protocol uses logical addressing and performs routing in the OSI layer 3.
+
+It is connectionless and does not rely on any prior estabilished connection.
+
+No reliability built in, this is handled at layer 4 (TCP). It is media independent (copper, fiber, wifi etc.)
+
+
+IPv4 addressing
+***************
+Network address   - 192.168.0.0 (first address in network, host bits set to 0)
+
+Broadcast address - 192.168.0.255 (last address in network, host bits set to 1)
+
+Default gateway   - 192.168.0.1 (often first host address in network)
+
+Host address      - 192.168.0.100 (any other available address, set auto through DHCP or manually through static entry)
+
+Netmask           - 255.255.255.0 (Network portion identified by first 3 octets, host by last)
+
+Multicast address - 224.0.0.1 (224.0.0.0-239.255.255.255 used for sending to groups set up for multicast)
+
+
+Routing (OSI layer 3)
+---------------------
+Routers route the data based on IPv4 destination address
+
+Determines best path for IP packet based on routing table
+
+Routers forward packet to default gateway for unknown networks
+
+Hosts also have routing tables and forward packets to default gateway for unknown networks (route table - 0.0.0.0 0.0.0.0 gateway, netstat -r)
+
+
+IP packet header - Max size for packet is 65535 bytes, minimum 21 bytes (20 header + 1 data)
+********************************************************************************************
+Version
+-------
+IPv4, IPv6 or ICMP
+
+Internet Header Length (IHL)
+----------------------------
+Variable due to optional data at end of header
+
+DSCP (Type of service priorization)
+-----------------------------------
+VoIP etc.
+
+Explicit Congestion Notification
+--------------------------------
+End-to-end notification for congestion according to RFC 3168
+
+Total length
+------------
+Total packet length in bytes
+
+Identification
+--------------
+Identification for split fragments of a packet
+
+Flags
+-----
+Bit 0: Reserved, Bit 1: Don't fragment, Bit 2: More fragments
+
+Fragment Offset
+---------------
+Offset of fragment relative to beginning of original IP packet in unit of eight byte blocks
+
+Time to live (TTL)
+------------------
+Packet hop count, decremented by one when arriving at a router. When TTL hits 0 the packet is discarded by the router.
+
+Protocol
+--------
+Defines protocol for the data section per RFC 790
+
+Header checksum
+---------------
+Used for error-checking the header, re-calculated when arriving at a new router. If no match, router discards packet
+
+Source address
+--------------
+IPv4 address of sender, may be changed by NAT during routing
+
+Destination address
+-------------------
+IPv4 address of receiver, may be changed by NAT during routing
+
+Options
+-------
+Not much used
+
+Data
+----
+Minimum 1 byte of data
+

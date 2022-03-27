@@ -1,0 +1,38 @@
+The purpose of NAT is to translate private IP addresses to global IP addresses used for communicating on the internet.
+
+NAT is set up on the router.
+
+Private IP address ranges:
+10.0.0.0 to 10.255.255.255
+172.16.0.0 to 172.31.255.255
+192.168.0.0 to 192.168.255.255
+
+NAT also helps in reducing the need for global IP addresses.
+
+
+Static NAT (1-to-1)
+-------------------
+Map a single global IP address to a private IP address
+
+Example is to map a global IP to a private IP honeypot, allowing honeypot to capture all global traffic
+
+
+Port address translation NAT (1-to-1)
+-------------------------------------
+Map a single private address port to a global address port
+
+Example is to forward traffic from global address port 80 to internal web server at private address port 80
+
+
+NAT overload translation (port overloads)
+-----------------------------------------
+Allow multiple private addresses to access the internet through a single global IP address
+
+This is used through overloading the port in the TCP segment, allowing the router to keep track of which private IP address to route incoming traffic back to
+
+Typically used in home routers and widely used to reduce the need for global IPv4 addresses
+
+
+Dynamic translation (NAT pool)
+------------------------------
+Map private IP addresses to a pool of global IP addresses, in a many-to-one relationship

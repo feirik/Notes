@@ -1,0 +1,31 @@
+The goal of ARP is to discover MAC address of a host, if only an IP address is known beforehand.
+
+A known destination MAC address is necessary to transfer data over layer 2 Ethernet.
+
+ARP is a protocol using both layer 2 (MAC) and 3 (IP).
+
+
+ARP broadcast
+-------------
+If destination MAC address is not in sending host's ARP table, the host will send an 'ARP request' broadcast message to all other hosts in the broadcast domain.
+
+If a receiving host's IP matches the broadcast query, it will send an unicast 'ARP reply' with its MAC address.
+
+
+ARP table
+---------
+Typical timeout for ARP tables is 4-6 hours.
+
+Static entries can be added to avoid having to send ARP requests/replies. Often used for VMs.
+
+
+Commands Windows
+----------------
+arp -a (full ARP table)
+
+arp -d * OR netsh interface ip delete arpcache (require elevated priveleges, clear ARP cache)
+
+
+Commands Linux
+--------------
+arp -a
