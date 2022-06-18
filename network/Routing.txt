@@ -1,0 +1,41 @@
+The purpose of routers is to listen and provide subnet information to/from other routers
+
+The router determines best path for sending the packet based on available info and routing protocol in use
+
+
+Distance-vector routing
+-----------------------
+Choose route based on number of hops to target network (RIP, EIGRP)
+
+
+Link-state routing
+------------------
+Choose route based on speed of the link (OSPF)
+
+
+Hybrid-state routing
+--------------------
+Choose route based on link-state, distance-vector and network policies to decide route (BGP)
+
+
+Routing table
+-------------
+Router, workstations and other devices who can forward packets have a route table
+
+Default route/gateway of last resort - Send packet to this interface if no other specific route entries match
+
+Often 0.0.0.0/0 Fa0/0 is used as a default route - Packets from any IP address with any subnet mask get sent to interface Fa0/0
+
+Time to live (IPv4) and hop limit (IPv6) prevents packets looping, eventually dropping packets if no route is founds
+
+
+Administrative distance
+-----------------------
+Determine which routing protocol has priority, in case of conflict between 2 or more protocols
+
+
+Traffic shaping (QoS)
+---------------------
+Prioritize bandwidth usage based on ports
+
+

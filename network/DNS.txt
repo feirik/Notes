@@ -1,0 +1,31 @@
+The purpose of the Domain Name System is to translate human-readable names into IP addresses.
+
+DNS uses TCP/UDP port 53
+
+DNS servers can be internal (intranet) or global (.com, .uk etc.)
+
+Typical DNS providers are Google DNS (8.8.8.8) or Quad9 (9.9.9.9)
+
+
+DNS query
+---------
+The DNS server recursively lookup the correct domain to IP translation and caches the result
+
+Also possible to do manually iteratively (query DNS root server, get next step.)
+
+
+Authority
+---------
+Authorative respose - DNS server is the authority for the zone
+
+Non-authoriative - Server provided probably cached DNS information
+
+
+Reverse DNS lookup
+------------------
+Provide DNS server with an IP address and get fully qualified domain name (FQDN) - Can be useful for OSINT
+
+
+Zone transfer
+-------------
+Synchronize primary copy of the zone information to a secondary DNS server - Can be used for OSINT recon if not restricted

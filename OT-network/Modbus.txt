@@ -1,0 +1,88 @@
+Modbus is an old, but widely used fieldbus protocol using TCP port 502.
+
+The protocol is based on master/slave supporting reading or writing data from slaves.
+
+Modbus RTU and Modbus TCP are most prominent. Modbus RTU with RS-232 supports 1 slave, with RS-485 supports up to 32 slaves.
+Modbus TCP is vulnerable to TCP/IP attacks due to lack of authentication.
+
+A coil is a single bit, a register is a 16-bit register.
+
+Addresses are 0-offset, but are often showed as 1-offset in GUIs.
+
+
+Modbus header
+**************
+Transaction ID (2 bytes)
+------------------------
+Used for matching master/slave command and reply, must match
+
+Protocol ID (2 bytes)
+---------------------
+Always 0 for Modbus
+
+Length field (2 bytes)
+----------------------
+Number of bytes of data from Unit ID + Function code + data
+
+Unit ID (1 bytes)
+-----------------
+Slave address (0-254, set 255 if not used)
+
+Function code (1 bytes)
+-----------------------
+Set what command to execute
+
+Data (n bytes)
+--------------
+Data as response or commands
+
+
+Most used function codes
+************************
+0x01 - Read coils
+0x02 - Read discrete inputs (read only coils)
+0x03 - Read Holding registers
+0x04 - Read input registers
+
+0x05 - Write single coils
+0x06 - Write single register
+0x0F - Write multiple coil
+0x10 - Write multiple register
+
+
+Read example
+------------
+7BE3 0000 0006 01 03 08D20002 (Read 2 bytes at holding registers for unit 01 at register offset 08D2)d
+
+
+Diagnostic codes and file read/write
+------------------------------------
+Often not implemented for devices
+
+
+Security
+********
+Modbus is vulnerable to on-path attacks due to clear text traffic. Enumeration is based on knowing the tag to address mapping of what Modbus is controlling.
+An attacker would often target the HMI (visible) or project files on the EWS to figure out the mapping to affect the process.
+
+Application firewall rules (would need to be placed on network between master/slave)
+------------------------------------------------------------------------------------
+Modbus TCP packets with wrong size or length
+
+Function codes that force slave into listen only mode
+
+Function codes that restart communcation
+
+Function codes that clear, erase or reset diagnostic information
+
+Traffic over port 502 masking as Modbus traffic
+
+Any message within an exception PDU
+
+Master to multiple slave traffic, possible DoS
+
+Modbus requests for lists of defined points and their values (ex. configuration scan)
+
+Commands to list all available functions (allowed function scan)
+
+

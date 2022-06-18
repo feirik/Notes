@@ -56,5 +56,11 @@ FCS
 Frame check sequence (integrity checking, calculated during sending and recalculated during receiving to verify)
 
 
+Interface configuration
+-----------------------
+Speed: 10 / 100 / 1000 (Mbps) / 10 Gig
+Duplex: Half/Full
+
+Auto-neg allows two ethernet links to automatically agree on the set duplex and speed, but can need troubleshooting
 
 

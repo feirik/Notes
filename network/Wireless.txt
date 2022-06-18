@@ -1,0 +1,71 @@
+Encryption
+**********
+WEP
+---
+Bad practice - don't use
+
+Wi-Fi Protected Access (WPA)
+----------------------------
+Better than WEP, but worse encryption and password enforcement than WPA2
+
+WPA2
+----
+Uses Counter Mode with Cipher Block Chaining (CCMP) and AES encryption, CBC-MAC for message integrity check (MIC)
+
+Can be vulnerable to pre-shared key (PSK) brute-force from listening to 4-way handshake and capturing hash
+
+WPA3
+----
+Galois Counter Mode Protocol, improved encryption compared to WPA2, GMAC as MIC
+
+Uses a simulatneous authentication of equals (SAE) to avoid 4-way handshakes and brute-force attacks on hash
+
+
+Service set identifier (SSID)
+-----------------------------
+Public wireless network name
+
+
+Basic service set identifier (BSSID)
+------------------------------------
+MAC address of the wireless access point, multiple BSSIDs APs can use same extended (E)SSID to allow roaming between zones
+
+
+Wi-fi channels
+--------------
+A channel is a group of frequencies to be used, numbered 1-11 (2.4Ghz) by IEEE
+
+Channels 1-6-11 are not overlapping in the 2.4GHz range
+
+Many more non-overlapping channels available for 5GHz, but can use multiple channels by increasing the bandwidth
+
+802.11a/b/g has 20 MHz bandwidth, 802.11n has options 20/40/80, 802.11ac/ax has options 20/40/80/160MHz
+
+
+Signal strength
+---------------
+Measured by Received Signal Strength Indication (RSSI) in dBm (decibels per milli Watt)
+
+-50 dBm - Excellent
+-70 dBm - Good
+-80 dBm and lower - Low signal
+
+
+802.11 frequencies and speeds
+-----------------------------
+Type      Max mbit      Freq
+****      ********      ****
+a         54            5Ghz
+
+b         11            2.4GHz
+
+g         54            2.4GHz
+
+n         600           2.4/5Ghz
+
+ac        6900          5Ghz
+
+ax        9600          2.4/5Ghz
+
+
+

@@ -40,3 +40,10 @@ Lease time
 Default lease time is 24h, client asks for a renew of the lease after 50% of time has passed
 
 If there are no available IP addresses from the pool, the DHCP server will fail to offer an IP
+
+
+DHCP relaying
+-------------
+A router can act as a DCHP relayer, allowing a host on a seperate broadcast domain without a DHCP server to get IP from a DHCP server
+
+The router relays the DHCP discover as unicast to router with DHCP server in domain, then broadcast DCHP message to host in original domain

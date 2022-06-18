@@ -1,0 +1,17 @@
+The purpose of a VLAN is to logically seperate broadcast domains on one switch, instead of using multiple physical switches.
+
+
+Trunking (802.1Q)
+-----------------
+Trunking is used to connect multiple VLANs between switches over a single trunk interface (often high speed link)
+
+The trunking process adds and removes a 12-bit VLAN portion to the Ethernet header (between source MAC and Type) to switch the frame to the correct VLAN
+
+
+VLAN IDs (from 12-bit VLAN header)
+----------------------------------
+0 and 4095 are reserved
+
+1-1005 is normal range
+
+1006-4094 is extended range

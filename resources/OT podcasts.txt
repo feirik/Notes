@@ -45,12 +45,27 @@ Buying security products
 
 Does your managed SOC suck?
 
+Conti leaks - The inside of the dark side (Ransomware)
+
+The ransomware dilemma
+
 
 Aperture: A Claroty podcast
 ---------------------------
 5. Justin Searle on Pen-Testing ICS
 
+12. Mandiant on Low-Sophistication OT Attacks
+
+13. Adm Mike Rogers on Ransomware and OT
+
+18. Top 20 Secure PLC Coding Practices List
+
 
 Inside the strategy room
 ------------------------
 20. Jan 2021 - Boards and cybersecurity (Cybersecurity landscape from an executive management perspective)
+
+
+i loopen (norwegian)
+--------------------
+# Tech - Hva gjør du i en cyberkrise? (Cyber crisis management, ransomware, psychology)

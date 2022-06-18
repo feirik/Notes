@@ -1,0 +1,55 @@
+The purpose of a switch is to forward or drop layer 2 frames based on destination MAC address.
+
+Network control to avoid loops is handled by the Spanning Tree Protocol (STP) or Rapid Spanning Tree Protocol (RSTP, 802.1w)
+
+
+MAC address table
+-----------------
+The MAC address table associates MAC addresses with interfaces connected to the switch, same for switch to switch traffic
+
+The switch cache the MAC address table based on source MAC address of incoming frames
+
+If switch is in doubt of an address table entry, it floods the frame to all interfaces
+
+
+Spanning Tree Protocol (802.1D)
+-------------------------------
+Modes
+*****
+Root port
+---------
+Designated interface that is closest to the root device of the network
+
+Designated port
+---------------
+Operational port on switch/bridge
+
+Blocked port
+------------
+STP blocks port(s) to avoids loops in the network
+
+
+States
+******
+Blocking
+--------
+Not forwarding to prevent a loop
+
+Listening
+---------
+Not forwarding and cleaning MAC address table
+
+Learning
+--------
+Not forwarding and adding to MAC address table
+
+Forwarding
+----------
+Passes frames and is fully operational
+
+Disabled
+--------
+Admin disabled port
+
+
+
