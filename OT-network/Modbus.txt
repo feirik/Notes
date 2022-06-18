@@ -52,7 +52,7 @@ Most used function codes
 
 Read example
 ------------
-7BE3 0000 0006 01 03 08D20002 (Read 2 bytes at holding registers for unit 01 at register offset 08D2)d
+7BE3 0000 0006 01 03 08D20002 (Read 2 bytes at holding registers for unit 01 at register offset 08D2)
 
 
 Diagnostic codes and file read/write
