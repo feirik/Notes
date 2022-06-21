@@ -1,22 +1,22 @@
 Distributed Network Protocol 3 (DNP3) is a set of protocols often used in electric and water utilities. Uses port 19999 TCP (TLS) and port 20000 TCP/UDP.
 
-DNP3 is has more overhead and is more complex than Modbus, but offsets this by polling and slave initiated communication (alarms).
+DNP3 is has more overhead and is more complex than Modbus, but offsets this by polling and slave initiated communication (report by exception - alarms etc.).
 
 A master is refered to as "master station" and slave is referred to as "outstation".
 
 Typically DNP3 can replace Modbus, but is also used for converting polled protocol Modbus to event based DNP3.
 
-SCADA <---> DNP3 Concentrator at remote-site <---> Modbus <---> Field devices
+SCADA <---> DNP3 Concentrator at remote-site <---> Modbus <---> PLC <---> Field devices
 
 This setup allows the Concentrator to poll Modbus at set intervals, and only send large data packets to SCADA in case of alarm or major change (event polling).
 
-DNP3 also has built in data buffering, allowing communcation to be stored until data link is ready again.
+DNP3 also has built in data buffering, allowing communcation to be stored until data link is up again.
 
 
 DNP3 message structure
 **********************
-Object group
-------------
+Object group (data type)
+------------------------
 Type of input or output (Binary, analog, counter, time, class)
 
 Variation
@@ -27,43 +27,146 @@ Function code
 -------------
 Instruction on how to interact with field device (read, write, select, operate etc.)
 
-Point mapping
--------------
+Data maps
+---------
 Data is stored in tags according to master/slave point mapping
+
+
+Polling
+*******
+Integrity polls
+---------------
+Poll both all realtime (static) and event based data (Type 1, 2, 3 and 0 data - and transfer data to master station)
+
+Event polls
+-----------
+Poll events in priority category 1, 2 or 3 and transfer data to master station
+
+Unsolicited
+-----------
+Outstation initiates response, master acks
+
+Specific polls
+--------------
+Request specific realtime (static) data entry (like Modbus address request)
 
 
 Often used groups
 -----------------
 Group 1 - Variation 2 (Binary input with flags)
 
+Group 10 - Variation 2 (Read single bit with status)
+
+Group 12 - Variation 1 (Write single bit/coil)
+
 Group 10 - Variation 2 (Binary output status with flags)
 
-Group 60 - Variation 1 (Read all static/current data for the device)
+Group 60 - Variation 1 (Read all static/realtime data for the device)
 
-Group 60 - Variation 1/2/3 (Event poll if something changes outside limits, by priority 1/2/3 p)
+Group 60 - Variation 2/3/4 (Event poll if something changes outside limits, by priority 1/2/3)
+
+
+Data frame format (255 usable bytes max)
+****************************************
+Data link header
+****************
+Start bytes
+-----------
+Always 0x05 0x64
+
+Message length (does not include start bytes, length or CRC bytes)
+------------------------------------------------------------------
+Min 5 bytes, max 255 bytes
+
+Data link control
+-----------------
+Various control bits - master/remote, data flow, buffer control, reset link, test link, link status etc.
+
+Destination
+-----------
+Address in LSB - MSB format, valid from 0x0 to 0xFFF0
+
+Source
+------
+Address in LSB - MSB format, valid from 0x0 to 0xFFF0
+
+CRC (2 bytes)
+-------------
+Integrity check (LSB - MSB format)
+
+
+Transport header (for segmenting messages larger than 255 into segments like TCP)
+*********************************************************************************
+Control bits
+------------
+First, final, segment sequence (First and last to set to 1 if only frame, often 0xC0 in raw data)
+
+
+Application header (fragments if larger than 2048 bytes)
+********************************************************
+Master application (2 bytes)
+****************************
+Control bits
+-----------
+First, final, fragment sequence
+
+Function code
+-------------
+Request function code according (Read, write, select, operate etc.)
+
+
+Remote application (4 bytes with IIC)
+*************************************
+Control bits
+-----------
+First, final, fragment sequence
+
+Function code
+-------------
+Response function code according (Confirm, response, unsolicitied response)
+
+Internal indications (2 bytes)
+------------------------------
+Various bits to report remote device status to master station
+
+
+Object header
+*************
+Group
+-----
+Type of input or output (Binary, analog, counter, time, class)
+
+Variation
+---------
+Sub-class of object group (read with/without flags, polling etc.)
+
+Qualifier
+---------
+Set what range to request (code 06 is often used, give all of a type)
+
+Range (0-8 bytes)
+-----------------
+Set what part of range to request, if qualifier set for this
 
 
 Security
 ********
 DNP3 is inherently not designed for security. Primary recommendation is to use DNP3 Secure, which adds authentication of messages at the cost of complexity.
 
-Firewall traffic
-----------------
+Application firewall rules
+--------------------------
 Non-DNP3 traffic masked as DNP3 on port 19999/20000
 
-Use of configuration function code 23 (Disable unsolicted response - slave alarm reporting)
+Use of configuration function code 23 (Disable unsolicited response - slave alarm reporting)
 
 Use of control functions 4, 5, 6 (Operate, direct operate and direct operate without ack - Regular process is select before operate)
 
 Use of application control function 18 (Stop application)
 
-Multiple unsolicted responses over time (DoS from response storm)
+Multiple unsolicited responses over time (DoS from response storm)
 
 Any unauthorized attempts to perform function requiring authorization
 
 Authentication failures
 
 DNP3 communcation to/from devices not explicitly defined as DNP3 devices
-
-
-
