@@ -1,0 +1,93 @@
+OLE for Process Control Direct Access (OPC DA) is a group of legacy OPC specifications still in use.
+
+OPC DA has poor security due to relying on legacy Windows DCOM communications. This can be partially mitigated by 3rd party tunneling software and OPC UA data gender changes.
+
+OPC DA out of the box requires TCP port 135 for RPC to be open, as well as dynamic ports used for OPC DA DCOM sessions.
+
+
+Common OPC DA modules
+*********************
+OPC data access
+---------------
+Transfer real-time data between OPC server and client
+
+OPC historical data access
+--------------------------
+Transfer raw or aggregate process data to historian database
+
+OPC alarm and events
+--------------------
+Alarm monitoring and acknowledgment between OPC server and client
+
+OPC data eXchange
+-----------------
+OPC DX allows OPC DA servers to exchange data directly without an indermediate OPC DA client
+
+
+Security
+********
+OPC DA is mostly used with legacy Windows versions so it's imporant to harden the OS before implementing OPC DA security.
+
+There are various tunneling solutions available to circumvent OPC DA security flaws such as Kepware OPC and Congent DataHub (transfer OPC DA data as OPC UA data, DMZ)
+
+There are also application firewalls aware of known OPC DA exploits
+
+Network architecture
+--------------------
+Define isolated zones for OPC DA servers
+
+Filter traffic through an application layer firewall
+
+Consider IPS, or IDS if loss of view/loss of control is critical
+
+
+Windows security
+----------------
+Ensuring up-to-date patching as practical for the OS version
+
+Limiting services to the required minimum for OPC DA
+
+Defining necessary user accounts and privileges
+
+Limit network access via host FW
+
+Protecting the Window registry (restrict regular user access and disable remote editing)
+
+
+OPC security
+------------
+Controlling authetication levels for OPC actions - Only admin for installation of SW and config, unprivileged for regular operating
+
+Controlling location of various OPC actions
+
+Managing and limiting DCOM permissions
+
+Limiting protocols used by DCOM/RPC and possibly setting a static port for more secure firewall rules
+
+Setting up appropirate OPC server accounts
+
+Restricting transport protocols for RPC
+
+Restricting TCP port ranges for RPC
+
+
+Enable logging
+--------------
+Windows service and open port determination
+
+Windows event log Analysis
+
+Vulnerability scanning
+
+
+IoCs
+----
+The use of non-OPC ports and services initiated from the OPC server
+
+Presence of known OPC exploits
+
+OPC services originating from unknown OPC servers (rogue server)
+
+Failed auth attempts or other auth anomalies on OPC server
+
+Success auth attempts on OPC server from unknown or unauthorized users

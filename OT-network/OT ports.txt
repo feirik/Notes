@@ -1,0 +1,41 @@
+TCP 80                  - OPC UA XML
+
+TCP 102                 - ICCP / MMS / IEC 104 (Energy sector)
+
+TCP 135                 - OPC DA (RPC - needed for DCOM)
+
+TCP 443                 - OPC UA XML
+
+TCP 502                 - Modbus TCP
+
+TCP/UDP 1089-1091       - Fieldbus HSE
+
+UDP 1628-1629           - LonTalk (Building automation)
+
+TCP 1911                - Fox (Tridium/Niagara - Building automation)
+
+UDP 2222, TCP/UDP 44818 - Industrial Protocol Ethernet
+
+TCP/UDP 4059            - DLMS/COSEM (Energy sector)
+
+TCP 4712                - IEEE C37.118 (Energy sector)
+
+UDP 4713                - IEEE C37.118 (Energy sector)
+
+TCP 4840                - OPC UA
+
+TCP/UDP 5094            - HART-IP
+
+TCP 19999               - DNP3 (TLS)
+
+TCP/UDP 20000           - DNP3
+
+TCP/UDP 34962-34964     - PROFINET
+
+UDP 34980               - EtherCAT
+
+TCP/UDP 44818, UDP 2222 - Industrial Protocol Ethernet
+
+UDP 47808               - BACnet/IP (Building automation)
+
+UDP 55000-55003         - FL-net
