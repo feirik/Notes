@@ -1,0 +1,207 @@
+Profibus Process Automation (PA) is a widely used field device level protocol.
+
+Profibus PA is directly connected with an transparent coupler interface from a Profibus DP network or through a link module (Profibus DP slave, Profibus PA master)
+
+Profibus PA is seen as a subnet of Profibus DP and supports up to 31 devices with lower data rates.
+
+EWS
+  |
+--------------- (ProfiNet, Purdue Level 2 network)
+  |
+PLCs
+  |
+--------------- (Profibus DP)
+  |
+Distributed I/O (To HART, instritic safe, regular field devices)
+  |
+PA-IF (Coupler or link module)
+  |
+--------------- (Profibus PA)
+
+
+Profibus headers
+****************
+Send function, no data
+**********************
+Start delimiter
+---------------
+Always 0x10
+
+Destination
+-----------
+0x0 to 0x7F valid (0x7F is broadcast address, 0x7E is default address for new devices)
+
+Source
+------
+0x0 to 0x7F valid
+
+Function code
+-------------
+Type and priority of message - Request, acknowledgement, or response
+
+Frame checking sequence
+-----------------------
+Integrity check
+
+End delimiter
+-------------
+Always 0x16
+
+
+Send variable amount of data
+****************************
+Start delimiter
+---------------
+Always 0x68
+
+Length
+------
+Net data length (Data + destination + source + function code + DSAP + SSAP)
+
+Length repeated
+---------------
+Repeated length (redundant data protection)
+
+Destination
+-----------
+0x0 to 0x7F valid (0x7F is broadcast address, 0x7E is default address for new devices)
+
+Source
+------
+0x0 to 0x7F valid
+
+Function code
+-------------
+Type and priority of message - Request, acknowledgement, or response
+
+Destination service access point (DSAP)
+---------------------------------------
+COM port of receiver (The destination station uses this to determine which service is to be executed)
+
+Source Service Access Point (SSAP)
+----------------------------------
+COM port of sender
+
+Data
+----
+1 to 244 bytes max
+
+Frame checking sequence
+-----------------------
+Integrity check
+
+End delimiter
+-------------
+Always 0x16
+
+
+Send fixed length of 8 bytes data
+*********************************
+Start delimiter
+---------------
+Always 0xA2
+
+Destination
+-----------
+0x0 to 0x7F valid (0x7F is broadcast address, 0x7E is default address for new devices)
+
+Source
+------
+0x0 to 0x7F valid
+
+Function code
+-------------
+Type and priority of message - Request, acknowledgement, or response
+
+Data
+----
+8 bytes
+
+Frame checking sequence
+-----------------------
+Integrity check
+
+End delimiter
+-------------
+Always 0x16
+
+
+Master-to-master token passing
+******************************
+Start delimiter
+---------------
+Always 0xDC
+
+Destination
+-----------
+0x0 to 0x7F valid (0x7F is broadcast address, 0x7E is default address for new devices)
+
+Source
+------
+0x0 to 0x7F valid
+
+End delimiter
+-------------
+Always 0x16
+
+
+Function codes
+**************
+Requests
+--------
+4 and 6 - Send data no ack (low/high)
+
+7 - Request diag data
+
+12 and 13 - Send and request data with ack (low/high)
+
+14 - Request ID with reply
+
+15 - Request LSAP status with reply
+
+
+Responses
+---------
+0 - Ack positive
+
+1 - Ack negative (user, interface error)
+
+2 - Ack negative (No resource/memory available)
+
+3 - Ack negative (Service not activated)
+
+8 - Response FDL/FMA (Send data OK)
+
+9 - Ack negative (No response FDL/FMA)
+
+10, 12, 13 - Response FDL (various flags)
+
+
+Service Access Points (SAP - used for variable data transfer)
+-------------------------------------------------------------
+SAP0  - Cyclical data exchange (Write_Read_Data, default)
+
+SAP54 - Master-to-master communication
+
+SAP55 - Set_Slave_Add
+
+SAP56 - Read inputs (Rd_Inp)
+
+SAP57 - Read outputs (Rd_Outp)
+
+SAP58 - Control commands to DP slave (Global_Control)
+
+SAP59 - Read config data (Get_Cfg)
+
+SAP60 - Read diagnostic data (Slave_Diagnosis)
+
+SAP61 - Send param data (Set_Prm)
+
+SAP62 - Check config data (Chk_Cfg)
+
+
+Security
+********
+Profibus DA communicates over serial RS-485 and is segmentated from regular IP and Ethernet traffic. 
+
+If the controlling PLCs on the IP network is compromised, the Profibus DA network is exposed. Physical security is important due to plain text communications of the protocol.

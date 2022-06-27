@@ -1,0 +1,88 @@
+Ethernet Industial Protocol (Ethernet/IP) implements the common industrial protocol (CIP) in the Ethernet stack.
+
+Ethernet/IP offers an object oriented framework for sending and receiving data in multiple Purdue-levels (mostly 2-3).
+
+Ethernet/IP uses UDP for near real-time polling/reporting (implicit messaging) and TCP for control (explicit messaging - Change set point etc.)
+
+TCP traffic and Ethernet/IP is often prioritized through QoS set in managed switches.
+
+
+More TCP/IP like Protocols <------------------------> More specialized for real-time efficiency
+
+EthernetIP, Modbus TCP --- Powerlink, Profinet RT --- Secros III, Profinet IRT, Ethercat
+
+
+CIP Object model (Object-oriented protocol)
+*******************************************
+Node address
+------------
+IP address for Ethernet/IP (MAC address for DeviceNet, ControlNet and CompoNet)
+
+Class ID
+--------
+Integer value representing object class
+
+Instance ID
+-----------
+Integer value representing the object among all instances of same class
+
+Attribute ID
+------------
+Integer value representing attribute assigned to class or instance, can hold data
+
+Service code
+------------
+Function code to be sent to object or instance
+
+
+An object can be required objects (Identity, Message Router etc.) or application objects (Analog Group, Discrete Group - Set by manufacturer)
+
+
+Encapsulation header
+********************
+Command
+-------
+2 bytes
+
+Length
+------
+2 bytes
+
+Session handle
+--------------
+4 bytes
+
+Status
+------
+4 bytes
+
+Sender context
+--------------
+8 bytes
+
+Options
+-------
+4 bytes
+
+Command data
+------------
+0 to 65511 bytes
+
+
+Security
+********
+Concerns
+--------
+No built in security in protocol
+
+Common required CIP objects can assist attackers in enumeration and attacking a network more broadly
+
+UDP and use of multicast enables spoofing and manipulation of transmission path from injected IGMP controls
+
+Recommendations
+---------------
+Network segmentation into zones and conduits, explicitly whitelist Ethernet/IP nodes
+
+Deep packet inspection firewall at zone perimiters
+
+Passive monitoring using ICS-aware IPS
