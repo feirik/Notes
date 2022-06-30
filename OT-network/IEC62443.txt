@@ -1,0 +1,38 @@
+Security Maturity Phases
+------------------------
+IEC 62443-1-1 - Page 49 (5.6.1 - Good overview of IACS cyber security phases)
+
+
+Conduits
+--------
+IEC 62443-1-1 - Page 58 (5.9.1 - Descriptions)
+
+
+Requirements
+------------
+IEC 62443-2-1 (Search for keyword)
+
+
+Network segmentation
+--------------------
+IEC 62443-2-1 - Page 101 (A.3.3.4 Element Network segmentation)
+
+
+Patch lifecycle
+---------------
+IEC 62443-2-3 - Page 14 (4.4 Patch Lifecycle)
+
+
+Technical discussions and recommendations
+-----------------------------------------
+IEC 62443-3-1 - Page 42 (Filtering/Blocking/Access Control Technologies)
+
+
+More detailed on zones and conduits
+-----------------------------------
+IEC 62443-3-2 - Page 18 (5.4.8 ZCR 3.7 – Zone and conduit drawings)
+
+
+Security level targets (1-4)
+----------------------------
+IEC 62443-3-3 - Page 72 (SL definitions and table for which requirements are applicable at each level)
