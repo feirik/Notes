@@ -1,0 +1,73 @@
+Basic commands (tab-completion, linux-like aliases built in)
+------------------------------------------------------------
+cd \
+
+ls (dir)
+
+echo "text" > myfile.txt
+
+cat \myfile.txt (Get-Content or type)
+
+cp (copy)
+
+rm (del)
+
+diff (gc file1.txt) (gc file2.txt) --- (Get-Content of file, else compare filename)
+
+cat file1.txt | sls <searchWord> (grep for line of text)
+
+ps (Get-Process)
+
+clear
+
+
+Firewall rules
+--------------
+Get-NetFirewallRule
+
+Get-NetFirewallRule | Format-Table -Property Displayname,Direction,Action (table format)
+
+Get-NetFirewallRule -DisplayName '<application>' (Search for application)
+
+
+Baseline services
+-----------------
+Get-Service
+
+gsv | where Status -eq Running
+
+
+Baseline network connections
+----------------------------
+Get-NetTCPConnection
+
+Get-NetTCPConnection -State Listen
+
+Get-NetTCPConnection -LocalPort 445
+
+
+ARP
+---
+arp -a
+
+Get-NetNeighbor
+
+Get-NetNeighbor -State Reachable
+
+
+Baseline users
+--------------
+gwmi -List | sls User
+
+gwmi -Class Win32_SystemUsers
+
+
+Baseline applications
+---------------------
+gwmi -List
+
+gwmi -List | sls <Application>
+
+
+
+

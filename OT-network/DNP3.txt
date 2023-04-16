@@ -1,5 +1,7 @@
 Distributed Network Protocol 3 (DNP3) is a set of protocols often used in electric and water utilities. Uses port 19999 TCP (TLS) and port 20000 TCP/UDP.
 
+DNP3 is used in North America, 95% similar IEC-104 is used in Europe. It is also very similar to MMS (61850-1).
+
 DNP3 is has more overhead and is more complex than Modbus, but offsets this by polling and slave initiated communication (report by exception - alarms etc.).
 
 A master is refered to as "master station" and slave is referred to as "outstation".

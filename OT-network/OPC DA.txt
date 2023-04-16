@@ -2,7 +2,7 @@ OLE for Process Control Direct Access (OPC DA) is a group of legacy OPC specific
 
 OPC DA has poor security due to relying on legacy Windows DCOM communications. This can be partially mitigated by 3rd party tunneling software and OPC UA data gender changes.
 
-OPC DA out of the box requires TCP port 135 for RPC to be open, as well as dynamic ports used for OPC DA DCOM sessions.
+OPC DA out of the box requires TCP port 135 for RPC to be open, as well as dynamic ports used for OPC DA DCOM sessions (TCP 1024-65535).
 
 
 Common OPC DA modules

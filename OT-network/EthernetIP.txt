@@ -1,8 +1,8 @@
-Ethernet Industial Protocol (Ethernet/IP) implements the common industrial protocol (CIP) in the Ethernet stack.
+Ethernet Industial Protocol (Ethernet/IP) implements the common industrial protocol (DeviceNet/ControlNet) (CIP) in the Ethernet stack.
 
 Ethernet/IP offers an object oriented framework for sending and receiving data in multiple Purdue-levels (mostly 2-3).
 
-Ethernet/IP uses UDP for near real-time polling/reporting (implicit messaging) and TCP for control (explicit messaging - Change set point etc.)
+Ethernet/IP uses UDP for near real-time polling/reporting and I/O (implicit messaging) and TCP for explicit messaging.
 
 TCP traffic and Ethernet/IP is often prioritized through QoS set in managed switches.
 

@@ -1,0 +1,37 @@
+Baseline users
+--------------
+cat /etc/passwd | grep sh (find users with shell login)
+
+ls /home
+
+
+Baseline installed software
+---------------------------
+dpkg -l (Debian)
+
+rpm -qa (RHEL or SUSE)
+
+ls /opt (manual installed SW)
+
+ls /usr/local/share (manual installed SW)
+
+
+Baseline package repo
+---------------------
+cat /etc/apt/sources.list (or equivalent for other distros)
+
+
+Baseline network
+----------------
+ip -s link (network link statistics)
+
+ip a
+
+ip neighbor / arp -a
+
+ip route
+
+ss -ltu / netstat -pantu
+
+sudo ss -ltunp (processes using ports)
+
