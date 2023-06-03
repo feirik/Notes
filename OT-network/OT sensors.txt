@@ -1,0 +1,143 @@
+Typical architecture (Claroty as example)
+-----------------------------------------
+xDome (SaaS with xIoT/IT functionality)
+^
+|
+v
+Enterprise management console (EMC) - Central management typically in SOC, NOC or data center similar to PAN Panorama or FortiManager
+^
+|
+v
+Continious threat detection (CTD) servers at each site - Can be multi-layered - Claroty SaaS also available
+^
+|
+v
+OT security sensors/Claroty edge (Using SPAN, RSPAN, ERSPAN or TAP data for the sensors)
+
+
+High importance alerts
+----------------------
+Firmware update
+
+Program mode change
+
+Last program installed date
+
+
+Alert types
+***********
+Asset information change
+------------------------
+Firmware, OS, hostname or slot cards changed unauthorized - Can be malicious or human error
+
+Baseline inactive
+-----------------
+A configured baseline is not working as expected, can indicate operational issue or malicious activity
+
+Configuration download to controller (PLC, RTU)
+-----------------------------------------------
+If unplanned - can indicate attacker trying to alter program or logic on controller 
+
+Review configuration and code being uploaded if possible
+
+Configuration upload from controller to EWS
+-------------------------------------------
+If unplanned - can indicated attacker trying to steal and enumerate data on the controller
+
+Firmware download to controller (PLC, RTU)
+------------------------------------------
+EWS or software on PLC typically performs download, network traffic captures both old and new firmware
+
+Potential attacks:
+- Logic bomb attack timed
+- Brick ethernet card
+- Randomly timed attacks
+- Field device propagation
+- Laterally move to other field devices
+
+Mode change
+-----------
+Different modes:
+- Program - Must be enabled to make changes to program of device
+- Run - Program upload and download disabled
+- Remote - Allows for remote changes of mode
+- Stop - PLC and program are stopped, outputs are set to off
+- Reset - Reset PLC to original state, warm or cold reset (reset all I/O and registers)
+- Test/Monitor mode - Similar to run but with more debug features
+
+Potential malicious activity - Set controller to program or test/monitor in order to change logic
+
+Monitor/debug mode
+------------------
+Unplanned activity might be malicious behavior
+
+New asset
+---------
+New asset seen in network traffic, potentially MitM, newly plugged rogue device etc. if not planned
+
+New conflict asset
+------------------
+New asset with same IP/MAC/other property as other asset, can be rogue device masking as legit device
+
+Online edit
+-----------
+EWS or similar host trying to put controller in online edit mode (edit program while running), can be used to Goodownload or modify controller program
+
+Policy rule match
+-----------------
+Communication matches an 'alert' rule configured in the OT sensor software (like an IDS FW rule)
+
+Policy violation
+----------------
+Communication matches an alert by default rule in the OT sensor software (like an implicit deny FW rule)
+
+Settings change
+---------------
+Setting change of a device such as TCP/IP setting
+
+DCS configuration change
+------------------------
+Examples are DCS server starting on remote node, DCS stopped/started - Verify if planned or not
+
+Denial of service
+-----------------
+Seen indications of DoS in traffic, such as SYN-flood
+
+Failed login
+------------
+Incorrect credentials or adversary attempting password spray, brute force etc.
+
+File system change
+------------------
+Detected editing or deleting of files from PLC file system
+
+Host scan
+---------
+Single asset trying to reach multiple assets over the same port (e.g. EWS scanning devices port 80)
+
+Approved scan? Common or uncommon port? Within or across subnet? From a known scanner IP?
+
+Known threat alert
+------------------
+Traffic matches a known threat based on anamoly detection engine
+
+Man-in-the-middle attack
+------------------------
+New host inserted in communication pathway to either monitor or alter network traffic
+
+Memory reset
+------------
+Overwrite on controller (PLC, RTU) memory - Typically triggered by memory reset operation by configuration download
+
+Port scan
+---------
+Device scanning multiple ports on other device
+
+Suspicious activity
+-------------------
+Malformed packets, operational error, invalid sessions, unknown objects, protocol DDoS captured in network traffic
+
+Suspicious file transfer
+------------------------
+File captured in traffic is known malicious by signature and/or contents
+
