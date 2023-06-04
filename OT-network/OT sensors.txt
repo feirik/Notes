@@ -1,3 +1,18 @@
+Top pain points for asset owners
+--------------------------------
+Lack of skills to operate OT cybersecurity solutions
+
+Mitigation actions are not feasible
+
+Creates alert fatigue
+
+Too complicated to use
+
+Effective only in a post-breach scenario
+
+Alerts have no business context
+
+
 Typical architecture (Claroty as example)
 -----------------------------------------
 xDome (SaaS with xIoT/IT functionality)
@@ -13,6 +28,19 @@ Continious threat detection (CTD) servers at each site - Can be multi-layered - 
 |
 v
 OT security sensors/Claroty edge (Using SPAN, RSPAN, ERSPAN or TAP data for the sensors)
+
+
+Architecture (Nozomi)
+---------------------
+Customer hosted (on-prem or cloud) central management console (CMC) or SaaS (Nozomi Vantage)
+^
+|
+v
+Nozomi Guardian sensors (collecting and processing SPAN/TAP data)
+^
+|
+v
+Nozomi Remote Collector (collecting and feeding Guardian data)
 
 
 High importance alerts
