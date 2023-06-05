@@ -109,7 +109,7 @@ New asset with same IP/MAC/other property as other asset, can be rogue device ma
 
 Online edit
 -----------
-EWS or similar host trying to put controller in online edit mode (edit program while running), can be used to Goodownload or modify controller program
+EWS or similar host trying to put controller in online edit mode (edit program while running), can be used to download or modify controller program
 
 Policy rule match
 -----------------
