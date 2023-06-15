@@ -1,0 +1,98 @@
+Definitions
+-----------
+Continious monitoring (CM) - Focused on finding vulerabilities and risks
+
+Network Security monitoring (NSM) - Focused on find threats and attackers (FW, sessions, NIDS/HIDS, Win logs, syslog, SNMP, AV agents etc.)
+
+Signature-based - Based on IoCs
+
+Anomaly-based - tools learn the network, then alert if something is different
+
+Behavior-based - based on attacker TTPs
+
+
+What to look for
+----------------
+Exceptions from baseline (A talks to B, but never normally to C)
+
+Top talkers (C2, scanning etc.)
+
+Unexpected connectivity (to internet or IT network)
+
+Known malicious IPs and domains
+
+Logins using default accounts
+
+Error messages that could be correlated to vulns
+
+Unusual system and firewall log entries
+
+Endpoint, IDS or other security alerts
+
+Unexpected file and firmware updates
+
+
+PLC DFIR collection (ask engineers what they use in day-to-day to debug non-security events)
+--------------------------------------------------------------------------------------------
+Terminal
+
+FTP
+
+Web browser
+
+PLC software
+
+
+Collection best practice
+------------------------
+Have a plan, prepare in advance (checklist)
+
+Document exactly what you collect
+
+Dont make changes to or reboot PLC
+
+Treat collected data as evidence
+
+Assume attacker has access to PLC or HMI
+
+Assume the ICS credentials are compromised
+
+
+PLC collection points (Physical data)
+*************************************
+Location of device (exact)
+
+Device description
+
+Identifying info (manufacturer, S/N, P/N, name)
+
+Connections (serial, USB, ethernet)
+
+Front/back panel LED status
+
+Power consumption
+
+Temperature (if high, can indicate abnormal CPU usage)
+
+Evidence of tampering
+
+
+PLC collection points (Digital data)
+************************************
+System time and date (UTC or local)
+
+Running configuration (including user accounts)
+
+Last-known good config
+
+RTOS version
+
+Running firmware, approved firmware
+
+CPU usage %, Memory usage % (RAM, storage)
+
+Running processes
+
+Active ports (serial, USB, ethernet etc.)
+
+Logs (security, event, user logs)

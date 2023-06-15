@@ -1,3 +1,16 @@
+Definitions
+-----------
+Continious monitoring (CM) - Focused on finding vulerabilities and risks
+
+Network Security monitoring (NSM) - Focused on find threats and attackers (FW, sessions, NIDS/HIDS, Win logs, syslog, SNMP, AV agents etc.)
+
+Signature-based - Based on IoCs
+
+Anomaly-based - tools learn the network, then alert if something is different
+
+Behavior-based - based on attacker TTPs
+
+
 Top pain points for asset owners
 --------------------------------
 Lack of skills to operate OT cybersecurity solutions
