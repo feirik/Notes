@@ -1,0 +1,74 @@
+FW basics
+---------
+R - Routing (know where traffic is headed, focus routing table)
+N - NAT
+R - Rights (Security policy ACCEPT/DENY rules, profiles etc.)
+
+
+Routing
+-------
+get router info routing-table details <IP> (Show routing table entry that is used for IP)
+
+get router info routing-table database (Show selected and not used entries in routing table)
+
+
+ARP cache and MAC
+-----------------
+get system arp
+
+get hardware nic <port#>
+
+
+NAT debug
+---------
+get system session list (similar to netstat for seeing NAT translations etc.)
+
+
+Status
+------
+get system status (serialnumber, version etc.)
+
+get system performance status (performance utilization)
+
+
+Upgrading
+---------
+1. Read the release notes
+2. Have console access
+3. Backup config
+4. Know how to revert firmware partition
+5. Have old and new firmware on hand
+6. Read the release notes
+7. After upgrade, run 'diag debug config-error-log read'
+
+
+Troubleshooting
+---------------
+Don't trust the user info and documentation (but be nice)
+
+Top-down or bottom-up troubleshooting
+
+Verify symptom
+
+Backup plan (before doing anything significant - snapshots snapshots)
+
+Incremental testing
+
+
+Bootstrapping from CLI
+----------------------
+get system interface physical (see status of interface ports)
+
+config system interface
+
+edit port<#>
+
+show
+
+set ip <ip> <mask in 255.255.255.0 format>
+
+set allowaccess ping https ssh
+
+end
+
+execute ping <gateway IP> (check connectivity from interface)
