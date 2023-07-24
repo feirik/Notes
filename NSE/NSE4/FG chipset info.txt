@@ -1,0 +1,22 @@
+Inter-VDOM links
+----------------
+NP4 and NP6 processor include npu0_vlink and npu1_vlink for accelerated inter-VDOM communication
+
+
+SSL VPN hardware acceleration
+-----------------------------
+CP8 and CP9 support SSL VPN HW acceleration through bulk data engine
+
+
+Logging
+-------
+Traffic offloaded to NP6 and NP6Lite processors does not log traffic stats
+
+Traffic offloaded to NP7 processors have improved logging of traffic stats
+
+
+Antivirus
+---------
+FG models with SoC4, NP6 or NP7 can accelerate anitvirus processing (not proxy-based mode)
+
+NP8 and NP9 support advanced cp-accel-mode aswell

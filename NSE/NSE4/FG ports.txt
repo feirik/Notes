@@ -1,0 +1,35 @@
+TCP/UDP port 7 (link health monitor)
+
+TCP 22 (HA CLI management)
+
+TCP 135 (RPC - Collector agent polling domain controller for FSSO)
+
+UDP 137 (Collector agent polling domain controller for FSSO)
+
+TCP 139 (NetBIOS - Collector agent polling domain controller for FSSO)
+
+TCP 389 (LDAP)
+
+TCP 445 (SMB - Collector agent polling domain controller for FSSO)
+
+UDP 500 (IPsec IKE)
+
+UDP 514 (Syslog)
+
+TCP 636 (LDAPSecure)
+
+TCP 700 (HA - logging and alert emails)
+
+TCP/UDP 703 (HA - data sync)
+
+TCP/UDP 862 (link health monitor two-way active measurement protocol(TWAMP))
+
+TCP 3268 (FSSO TLS)
+
+TCP 3269 (FSSO TLS)
+
+UDP 4500 (IPsec IKE rekey crossing NAT or IPsec ESP)
+
+TCP 8000 (Collector agent to FortiGate communication for Fortinet single sign-on (FSSO))
+
+UDP 8002 (Collector agent listens on this port for FSSO)

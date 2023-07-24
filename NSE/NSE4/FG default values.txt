@@ -1,0 +1,195 @@
+Administative distance for routes (if tie, uses route installed last)
+---------------------------------------------------------------------
+Connected interface: 0
+Static SD-WAN zone: 1
+Static DHCP: 5
+Static route: 10
+Static IKE: 15
+eBGP: 20
+OSPF: 110
+IS-IS: 115
+RIP: 120
+iBGP: 200
+
+
+Default priority is 1 (used for differentiating active/standby routes)
+
+Equal cost multi-path (ECMP) source IP mode is the default
+
+
+Reverse path forwarding check
+-----------------------------
+set src-check enable (feasible path - non-strict mode enabled by default)
+
+
+VDOM
+----
+By default, only root VDOM exists and is also the default management VDOM
+
+Global settings in VDOM:
+- Hostname
+- HA settings
+- FortiGuard settings
+- System time
+- Administrative accounts
+
+By default, all VDOMs are in same broadcast domain
+
+By default, no warning message appear when creating new VDOMs (possible to enable in CLI)
+
+
+FSSO
+----
+Uses event ID 4768 and 4769 (FortiGate agentless polling domain controller)
+
+Workstation verify intervall: 5 min (Check if user is still logged in)
+
+Dead entry timeout interval: 480 min (entries with an unverified status)
+
+IP address change verify intervall: 1 min (check if IP for user has changed)
+
+FSSO log size limit: 10MB
+
+
+SSL VPN
+-------
+Default port: 443 TCP
+
+Default idle timeout: 300 sec
+
+Default login timeout: 30 sec
+
+Default DTLS hello timeout: 10 sec
+
+
+IPsec VPN
+---------
+Dead peer detection: On demand is default mode
+
+Hardware offloading is enabled by default
+
+(H)ashing (SHA, MD5 etc.)
+(A)uthentication (PSK, certificates, XAuth)
+(G)roups (DH group selection)
+(L)ifetime
+(E)ncryption (AES128, AES192, AES256 etc., also DES-types, but not recommended)
+
+IPsec add-route is enabled by default (automatic creation of static route in VPN tunnel)
+
+
+High availability (HA)
+**********************
+NAT mode ethernet frame type: 0x8890
+
+Transparent mode ethernet frame type: 0x8891
+
+Data sync ethernet frame type: 0x8893
+
+Election process
+----------------
+1. Number of monitored links being up
+2. HA uptime
+3. Priority
+4. Serial number (larger is better)
+
+Heartbeat interface address: 169.254.0.1 (highest serial number, x.x.x.2 for second highest etc.)
+
+By default, cluster checks config every 60 seconds to check configurations are synced
+
+If HA devices are out of sync, checksum of configs are checked every 15 sec
+
+By default, multicast routes remain in forwarding table for 600 sec after HA failover
+
+By default, only sessions subject to proxy inspection are distributed to secondary device in active-active mode
+
+By default, uninterruptable upgrade is enabled
+
+
+Diagnosis
+*********
+Green memory threshold default: 82%
+
+Red memory threshold default: 88%
+
+Extreme memory threshold default: 95%
+
+
+Initial configuration
+*********************
+Default IP: 192.168.1.99
+
+Default admin timeout: 5 min
+
+Default config file format is without :, YAML is "config_system_global:" etc.
+
+
+Firewall Policy
+***************
+Internet service database (ISDB) updates are enabled by default
+
+Profile-based policy is default
+
+
+Network address translation
+***************************
+Firewall address objects do not match VIPs (as in VIP is not denied if even if "all" is denied, would have to deny all and VIPs")
+
+ARP reply from external VIP addresses is enabled by default
+
+
+User authentication
+*******************
+Firewall policy must allow DNS and one of HTTP, HTTPS, FTP, Telnet to show user auth message
+
+Default user setting timeout is idle (no traffic for amount of time locks out user)
+
+
+Logging
+*******
+By default, logs older than 7 days are deleted from disk
+
+25% of disk space is reserved system use
+
+By default, oldest logs are overwritten on FortiAnalyzer if full disk
+
+UDP Port 514 default for log transmission
+
+Log rolling default size: 20MB
+
+
+Certificate operations
+**********************
+Fortigate support the X.509v3
+
+
+Web filter
+----------
+Rating error if timeout after is 15 sec by default
+
+Default TTL for web filter cache is 60 min by default
+
+
+Application control
+-------------------
+Default action for QUIC protocol is block
+
+
+Antivirus
+---------
+Extended database is default (other is Extreme for some FG models)
+
+Feature set is flow-based by default (hybrid mode of proxy and flow-based scanning of packets)
+
+Default oversize limit is 10MB per file, if larger, file is by default allowed without scanning
+
+By default, files will be attempted to be de-compressed 12 layers deep
+
+
+IPS
+---
+The regular database is default, default action is block
+
+
+Security fabric
+---------------
+By default, object sync is enabled between devices

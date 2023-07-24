@@ -1,0 +1,92 @@
+SSL inspection
+**************
+Invalid certs
+-------------
+Keep untrusted and allow
+Block
+Trust and allow
+
+
+Untrusted certificates
+----------------------
+Allow
+Block
+Ignore
+
+
+Web filter
+**********
+Proxy based
+-----------
+Allow
+Block
+Monitor
+Warning
+Authenticate
+
+Flow-based (profile mode)
+-----------
+Allow
+Block
+Monitor
+Warning
+Authenticate
+
+
+Flow-based (policy mode)
+-----------
+Accept
+Deny
+
+
+URL-filter
+----------
+Allow
+Block
+Monitor (allow but log)
+Exempt (bypass all security inspections)
+
+
+Web content filtering
+---------------------
+Exempt
+Block
+
+
+Video filter (youtube etc.)
+---------------------------
+Allow
+Monitor
+Block
+
+
+Application profile (profile based mode)
+----------------------------------------
+Allow
+Monitor
+Block
+Quarantine (log and block until expiration time)
+
+
+IPS
+---
+Allow
+Monitor
+Block
+Reset (send TCP reset packet)
+Default (often block)
+Quarantine
+
+
+Botnet protection/C2
+--------------------
+Disable
+Monitor
+Block
+
+
+Denial of service protection
+----------------------------
+Disable
+Monitor
+Block

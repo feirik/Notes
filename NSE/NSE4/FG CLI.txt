@@ -1,0 +1,270 @@
+Routing
+*******
+get router info kernel (show Forwarding Information Base (FIB) - actually used routes instead of full database RIB)
+
+get router info routing-table database (view all active, inactive and standby routes)
+
+get router info routing-table all (display all routes in the Routing Information Base (RIB))
+
+First [110/2] is Distance/Metric - Distance is dynamic routing protocol selection, metric is best path within protocol
+
+Second [1/0] is Priority/Weight - Priority for equal distance routes, weight for BGP (higher is more preferred)
+
+
+config system settings
+	set strict-src check enable (set strict return path forwarding check - anti-spoofing)
+
+config system interface
+	edit interface <#>
+		set src-check disable (enable or disable return path forwarding)
+
+
+diagnose firewall proute list (show policy route table)
+
+diagnose sniffer packet <interface> '<filter>' (packet capture for debugging, tcpdump filter syntax)
+
+
+VDOMs
+*****
+config system global
+	set vdom-mode no-vdom/multi-vdom (set VDOM mode)
+
+
+config vdom
+edit <vdom#>
+	config system settings
+		set vdom-type admin/traffic
+
+config system interface
+	edit <interface name>
+		set forward-domain domain_id (split broadcast domain for VDOMs)
+
+diagnose sniffer packet <interface> '<filter>' (debug inter-VDOM routing)
+
+diagnose debug enable
+diagnose debug flow filter addr <host>
+diagnose debug flow trace start 100 (peform a packet flow trace - debug traffic inside VDOM)
+
+
+FSSO
+****
+diagnose debug authd fsso list (show currently logged on FSSO users)
+
+diagnose debug enable
+diagnose debug authd fsso server-status (check connectivity between fortigate and FSSO collector)
+
+diagnose debug authd fsso filter (filter used for list or clear logins)
+diagnose debug authd fsso refresh-groups (refresh group mapping)
+diagnose debug authd fsso summary (summary of currently logged on users)
+diagnose debug authd fsso clear-logins (delete cache login status)
+diagnose debug authd fsso refresh-logins (resync login database)
+
+diagnose firewall auth clear (clear all filtered users)
+diagnose firewall auth filter (filter specific group, id etc.)
+diagnose firewall auth list (list authenticated users)
+
+diagnose debug fsso-polling detail (status of polls by FortiGate to domain controller)
+diagnose debug fsso-polling refresh-user (active FSSO users)
+
+diagnose debug application fssod -1 (enable agentless polling real time debug)
+
+
+ZTNA
+****
+diagnose endpoint record list (verify presence of matching endpoint record - certificate Forticlient EMS)
+
+config firewall access-proxy
+	edit <name>
+		set client-cert enable
+		set empty-cert-action block (enable certificate authentication checking)
+
+
+SSL VPN
+*******
+config vpn ssl web portal
+	edit <portal name>
+		set tunnel-mode enable/disable
+		set web-mode enable/disable
+
+config vpn ssl web host-check-software (see posture check of SSL VPN clients)
+show
+
+config vpn ssl web portal
+	edit <portal name>
+		set host-check none/av/fw/av-fw/custom
+		set hostcheck-interval <seconds> (check software installed on client)
+
+diagnose debug enable
+diagnose vpn ssl list (show current connections)
+diagnose vpn ssl info (general SSL VPN information)
+diagnose vpn ssl statistics (show mem usage, max and current connections)
+diagnose vpn ssl debug-filter (debug message filter for SSL VPN)
+diagnose vpn ssl hw-acceleration-status (display status of HW acceleration)
+diagnose vpn ssl tunnel-test (enable/disable SSL VPN old tunnel mode IP allocation method)
+diagnose vpn ssl web-mode-test (enable/disable random session ID in proxy URL for testing)
+
+diagnose debug application sslvpn -1 (display debug messages)
+diagnose debug enable
+
+
+High Availability
+*****************
+diagnose system ha reset-uptime (force HA failover by resetting uptime)
+
+config system ha
+	set override enable (set priority to take precedence over HA uptime in HA selection)
+
+config system ha
+	set session-pickup enable (enable non-proxy TCP session sync for failover)
+	set session-pickup-connectionless enable (enable ICMP and UDP session sync for failover)
+	set multicast-ttl <secs> (multicast routes remain in forwarding table after failover)
+
+config system ha
+	set hb-interval <1-20> (number of heartbeat interval units)
+	set hb-interval-in-milliseconds 100/10ms (heartbeat interval)
+	set hb-lost-threshold <1-60> (number of heartbeat interval units)
+
+get system ha status (cluster status, primary selection, sync, performance stats)
+
+diagnose system ha status (heartbeat, monitored links, member role, host name, serial number, ID)
+
+diagnose system ha checksum show (check checksum of individual HAs)
+
+diagnose system ha checksum cluster (cluster checksum)
+
+diagnose system ha checksum recalculate
+
+execute ha manage <member_id> <admin_username> (switch ssh CLI to different HA member)
+
+execute ha failover set/unset (trigger HA failover)
+
+execute ha failover status (view permanent secondary role status)
+
+
+Diagnosis
+*********
+get system status (model, serial number, fw version, host name, fortiguard license, versions of IPS etc.)
+
+get hardware nic <interface name> (physical layer debug)
+
+get system arp (arp table)
+
+execute ping <ip>
+execute ping6 <ip>
+execute traceroute <ip>
+
+diagnose debug flow filter <filter> (define filter)
+diagnose debug enable (enable debug output)
+diagnose debug flow trace start <number to repeat>
+diagnose debug flow trace stop
+
+get system performance status (CPU, memory etc.)
+
+diagnose system top 2 (top CPU/RAM usage processes, update every 2 sec)
+
+diagnose hardware sysinfo conserve (debug memory conserve mode)
+
+diagnose hardware test suite all (FortiOS hardware test command)
+
+diagnose debug crashlog history (summary of processes, how many and time of crashes)
+
+diagnose debug crashlog read (detailed output of crashlog)
+
+
+Initial configuration
+*********************
+execute backup yaml-config ftp/tftp <filename> server <username> <password> (backup from CLI)
+
+execute restore yaml-config ftp/tftp <filename> server <username> <password> (restore from CLI)
+
+
+Firewall Policy
+***************
+config system fortiguard
+	set update-ffdb enable/disable (set internet service database (ISDB) to be updated)
+
+
+Network address translation
+***************************
+diagnose firewall ippool list (port block size and number of blocks for ip pool)
+
+diagnose firewall ippool-fixed-range list (assignment for external addresses and blocks for internal addresses)
+
+diagnose firewall ippool-all list (list all configured NAT IP pools with NAT IP range and type)
+
+diagnose firewall ippool-all stats (list stats for all IP pools - NAT, TCP, UDP sessions per pool)
+
+
+User authentication
+*******************
+diagnose test authserver ldap <server_name> <username> <password> (test LDAP query)
+
+diagnose test authserver radius <server_name> <schema> <user> <password> (test RADIUS query)
+
+
+Logging
+*******
+set sys-perf-log-interval <every 0-15min> (enable performance statistics logging to occur)
+
+config log disk setting
+	set status enable (enable disk logging)
+	set maximum-log-age <integer in days> (7 is default)
+
+diagnose system logdisk usage (see reserved space for system use vs. available for logging)
+
+diagnose test application miglogd 6 (debug cache logs on FG)
+
+diagnose log kernel-state (total log, queued logs, failed sent logs stats)
+
+config log setting	
+	set user-anonymize enable (hide username in logs)
+
+execute log filter (config what log messages to see)
+
+execute log display (see specific log messages from filter)
+
+execute backup disk alllogs ftp/tftp/usb (export logs to FTP, TFTP or USB)
+
+execute backup disk log ftp/tftp/usb <log type> (export specific log)
+
+
+Web filter
+**********
+diagnose debug rating (fortiguard category filtering connection status)
+
+
+Antivirus
+---------
+diagnose autoupdate status (verify signature status)
+
+diagnose autoupdate versions (verify signature versions)
+
+config ips global
+	set np-accel-mode none/basic (enable hw accelerating)
+
+diagnose debug application update -1
+diagnose debug enable
+execute update-av (debug real-time update)
+
+get system performance status (virus statistics for last minute)
+
+diagnose antivirus database-info (current database info)
+
+diagnose autoupdate versions (displays current antivirus engine and signature versions)
+
+diagnose antivirus test "get scantime" (displays scan times for infected files)
+
+execute update-av (forces FG to check for updates)
+
+
+IPS and DoS
+-----------
+diagnose test application ipsmonitor <integer>
+	Int 2: Toggle IPS engine enable/disable status
+	Int 5: Toggle bypass status (IPS engine remains active, but does not inspect)
+	Int 99: Restart all IPS engines and monitor
+
+
+Security Fabric
+---------------
+diagnose report-runner trigger (run rating check manually)
