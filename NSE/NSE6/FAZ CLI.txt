@@ -1,0 +1,144 @@
+Bootstrapping from CLI
+**********************
+config system interface (to set management IP)
+
+edit port<#>
+
+show
+
+set ip <ip> <mask in 255.255.255.0 format>
+
+set allowaccess ping https ssh
+
+end
+
+execute ping <gateway IP> (check connectivity from interface)
+
+show system dns (see current DNS config)
+
+config system dns (set updated DNS IPs)
+
+set primary <primary DNS ip>
+set secondary <secondary DNS ip>
+
+show system route (route config)
+
+config system route (configure default gateway for default route (0.0.0.0/0))
+
+edit 1 (set first route entry)
+
+set device port<#> (connect route to port#)
+
+set gateway <default gateway IP address to internet>
+
+execute ping <FQDN like fortinet.com> (test DNS and internet connectivity for licensing)
+
+
+Resetting to factory defaults
+-----------------------------
+execute reset all-settings (factory reset)
+
+execute reset all-except-ip (all settings except current IP addresses and routes)
+
+execute format disk (Erase all settings but preserve IP and routing info)
+
+execute format disk deep-erase (low-level format of disk)
+
+
+System and network settings
+---------------------------
+get system status (model, serial number, fw version, host name etc.)
+
+get system performance (RAM, CPU, disk etc. performance statistics)
+
+get system interface (network interface configs)
+
+show system DNS (configured DNS server addresses)
+
+show system NTP (NTP server info)
+
+get system ntp (how often FAZ syncs time with NTP)
+
+show system route (configured static route entries)
+
+execute ping <ip>
+
+execute shutdown (preferred shutdown to allow SQL database etc. to quit gracefully)
+
+
+Diagnosis system info
+---------------------
+diagnose system print cpuinfo
+
+diagnose system print df (file system space details)
+
+diagnose log device (disk usage per ADOM)
+
+diagnose system print hosts (static table lookup for host names)
+
+diagnose system print netstat (network statistics for connections)
+
+diagnose system print route (complete routing table)
+
+diagnose hardware info (hw troubleshooting info for memory components)
+
+diagnose test application oftpd 3 (Devices and IPs connected to FAZ)
+
+diagnose test application oftpd 8 (Debug oftpd process (communication between FG and FAZ))
+
+diagnose dvm adom list (configured and enabled ADOMs)
+
+diagnose dvm device list (registered and unregistered devices)
+
+
+Increasing disk space VM
+------------------------
+execute lvm info (confirm new disk detected)
+
+execute lvm extend (add additional disk to lvm volume)
+
+
+Diagnosis hardware based RAID
+-----------------------------
+diagnose system raid status (RAID status, RAID level etc.)
+ 
+diagnose system raid hwinfo (RAID controller hw info)
+
+diagnose system disk info (Self Monitoring, Analysis and Reporting Technology (SMART) info)
+
+diagnose system disk health (SMART health status)
+
+diagnose system disk errors (SMART error log)
+
+diagnose system disk attributes (vendor specific SMART)
+
+
+High availability (HA)
+----------------------
+diagnose ha status
+
+diagnose ha stats
+
+diagnose ha dump-datalog (dump HA data log)
+
+diagnose ha failover (Run on master, force HA failover)
+
+dianose ha force-cfg-resync (force HA to re-sync config)
+
+diagnose ha load-balance (Show HA load balance status)
+
+diagnose ha restart-init-sync (Run on master, restart HA initial sync)
+
+
+SQL database
+------------
+execute sql local rebuild adom <NEW or OLD ADOM name> (Rebuild ADOM database to sync analytics logs with ADOM after moving device between ADOMs)
+
+
+Backup logs
+-----------
+execute backup logs (lots of options/arguments)
+
+diagnose fmupdate dbcontract fds (license info for moving logs off FAZ to cloud provider)
+
+diagnose test application uploadd 63 (debug upload info to cloud)

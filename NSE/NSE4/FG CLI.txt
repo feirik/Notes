@@ -1,3 +1,22 @@
+Bootstrapping from CLI
+----------------------
+get system interface physical (see status of interface ports)
+
+config system interface
+
+edit port<#>
+
+show
+
+set ip <ip> <mask in 255.255.255.0 format>
+
+set allowaccess ping https ssh
+
+end
+
+execute ping <gateway IP> (check connectivity from interface)
+
+
 Routing
 *******
 get router info kernel (show Forwarding Information Base (FIB) - actually used routes instead of full database RIB)
