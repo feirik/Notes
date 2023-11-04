@@ -1,0 +1,131 @@
+Bootstrapping from CLI
+**********************
+config system interface (to set management IP)
+
+edit port<#>
+
+show
+
+set ip <ip> <mask in 255.255.255.0 format>
+
+set allowaccess ping https ssh
+
+end
+
+execute ping <gateway IP> (check connectivity from interface)
+
+show system dns (see current DNS config)
+
+config system dns (set updated DNS IPs)
+
+set primary <primary DNS ip>
+set secondary <secondary DNS ip>
+
+show system route (route config)
+
+config system route (configure default gateway for default route (0.0.0.0/0))
+
+edit 1 (set first route entry)
+
+set device port<#> (connect route to port#)
+
+set gateway <default gateway IP address to internet>
+
+execute ping <FQDN like fortinet.com> (test DNS and internet connectivity for licensing)
+
+
+See connected devices
+---------------------
+diagnose dvm device list (list all managed and unregistered devices)
+
+
+Resetting to factory defaults
+-----------------------------
+execute reset all-settings (factory reset)
+
+execute reset all-except-ip (all settings except current IP addresses and routes)
+
+execute format disk (Delete all databases and logs, repartition hard disk)
+
+
+Moving system templates
+-----------------------
+execute fmprofile export-profile <ADOM name> <profile name> <output file name>
+
+execute fmprofile import-profile <ADOM name> <profile name> <full path of exported file>
+
+execute fmpolicy copy-adom-object (import unused objects after moving moving device between ADOMs)
+
+
+System and network settings
+---------------------------
+get system status (model, serial number, fw version, host name etc.)
+
+get system performance (RAM, CPU, disk etc. performance statistics)
+
+execute top (top processes)
+
+execute iotop (top processes with high i/o usage)
+
+diagnose debug crashlog read (list crash logs)
+
+execute ssh <FortiGate IP>
+
+execute ssh <FortiGate FGFM IP> (confirm FGFM tunnel is up)
+
+diagnose fgfm-session list
+
+diagnose dvm device list
+
+diagnose system print df
+
+diagnose system print partitions
+
+diagnose dvm lock (check unexpected locked processes)
+
+diagnose dvm proc list (check for stuck process or task)
+
+diagnose dvm task repair (keep logs, repair task database, reboots FM)
+
+diagnose dvm task reset (completely remove task database, reboots FM)
+
+get system interface (network interface configs)
+
+show system DNS (configured DNS server addresses)
+
+show system NTP (NTP server info)
+
+get system ntp (how often FAZ syncs time with NTP)
+
+show system route (configured static route entries)
+
+execute ping <ip>
+
+execute shutdown (preferred shutdown to allow databases etc. to quit gracefully)
+
+
+ADOM debugging
+--------------
+diagnose debug enable
+
+diagnose debug service adb 255 (diagnose ADOM upgrade)
+
+diagnose debug application depmanager 255 (diagnose real-time status of FortiGate being added by Add Device wizard)
+
+
+Diagnose FortiManager-FortiGate
+-------------------------------
+diagnose fgfm session-list (verify update between FMG and FG devices, display IPs and link-level addresses)
+
+
+Database integrity
+------------------
+diagnose dvm check-integrity
+
+diagnose cdb check adom-integrity
+
+diagnose cdb check adom-revision
+
+diagnose cdb check policy-packages
+
+diagnose cdb check update-devinfo (recommended to perform backup and log out admins before running commands)
