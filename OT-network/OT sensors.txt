@@ -83,7 +83,7 @@ Review configuration and code being uploaded if possible
 
 Configuration upload from controller to EWS
 -------------------------------------------
-If unplanned - can indicated attacker trying to steal and enumerate data on the controller
+If unplanned - can indicate attacker trying to steal and enumerate data on the controller
 
 Firmware download to controller (PLC, RTU)
 ------------------------------------------
