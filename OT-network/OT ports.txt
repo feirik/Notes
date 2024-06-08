@@ -1,6 +1,6 @@
 TCP 80                  - OPC UA XML
 
-TCP 102                 - ICCP / MMS / IEC 104 (Energy sector)
+TCP 102                 - ICCP / MMS
 
 TCP 135                 - OPC DA (RPC - needed for DCOM)
 
@@ -13,6 +13,8 @@ TCP/UDP 1089-1091       - Fieldbus HSE
 UDP 1628-1629           - LonTalk (Building automation)
 
 TCP 1911                - Fox (Tridium/Niagara - Building automation)
+
+TCP 2404                - IEC-104
 
 UDP 2222, TCP/UDP 44818 - Industrial Protocol Ethernet
 
